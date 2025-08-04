@@ -1,3 +1,5 @@
+from main import *
+
 resourcedictionary = {
     "wood": 0,
     "stone": 0,
@@ -23,7 +25,7 @@ fooddictionary = {
 
 def update():
     berries_counter.config(text=f"Berries: {getamount("berries")}")
-    brainstorm.config(text=f"Science: {getamount("berries")}")
+    brainstorm.config(text=f"Science: {getamount("science")}")
 
 
 def getamount(resource,condition=""):
