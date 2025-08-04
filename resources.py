@@ -25,7 +25,7 @@ fooddictionary = {
 
 def update():
     berries_counter.config(text=f"Berries: {getamount("berries")}")
-    brainstorm.config(text=f"Science: {getamount("science")}")
+    science_counter.config(text=f"Science: {getamount("science")}")
 
 
 def getamount(resource,condition=""):
