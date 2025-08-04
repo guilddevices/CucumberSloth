@@ -1,6 +1,6 @@
 resourcedictionary = {
     "wood": 0,
-    "stone": 0
+    "stone": 0,
     "money": 0
 }
 fooddictionary = {
