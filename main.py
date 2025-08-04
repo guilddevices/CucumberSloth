@@ -13,4 +13,5 @@ if whattodo.lower() == "yes":
         print(f"Waiting: {waitnumber}", end="\r", flush=True)
         time.sleep(1)
         waitnumber -= 1
-print(f"Berries: {getamount(berries)}")
+    changeamount("berries", 1)
+print(f"Berries: {getamount("berries")}")
