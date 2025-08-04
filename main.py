@@ -1,13 +1,29 @@
 import time
 import sys
 from resources import *
-from dialogue_handling import *
 import tkinter as tk
 from tech import *
 root = tk.Tk()
 root.title("Name of our Game")
-#Berries
 
+#Dialogue
+global dialogue1
+global dialogue2
+global dialogue3
+dialogue1 = ""
+dialogue2 = ""
+dialogue3 = ""
+
+def dialogue_pop_up(new_dialogue):
+
+    dialogue3 = dialogue2
+    dialogue2 = dialogue1
+    dialogue1 = new_dialogue
+    dialogue1_display = tk.Label(root, text=dialogue1).pack(side=tk.RIGHT, pady=5)
+    dialogue2_display = tk.Label(root, text=dialogue2).pack(side=tk.RIGHT, pady=5)
+    dialogue3_display = tk.Label(root, text=dialogue3).pack(side=tk.RIGHT, pady=5)
+
+#Berries
 def berry_gather():
     berries_button.config(state="disabled")
     berries_counter.config(text=f"Berries: {getamount("berries")}")
