@@ -12,7 +12,8 @@ science_tree = {
     }
 }
 have_science = {
-    "lumberjack": False
+    "foraging": False
+    "wood collecting": False
 }
 
 def research(item):
