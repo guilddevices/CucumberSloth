@@ -1,14 +1,11 @@
 from main import *
-
-dialogue = tk.Label(root,text=("""You are in Middle of Nowhere.
-Right now, you can only get berries for food, and you need to eat to survive."""))
-dialogue.place(x=1000,y=100)
+import tkinter as tk
 
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
 
-def dialogue(new_dialogue):
+def adddialogue(new_dialogue):
     dialogue1 = new_dialogue
     dialogue2 = dialogue1
     dialogue3 = dialogue2

@@ -25,7 +25,7 @@ brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 brainstorm_button.place(x=0,y=500)
 science_counter = tk.Label(root, text = "Science: 0")
 science_counter.place(x=100,y=100)
-#Dialogue_Section
+
 dialogue("""You are in Middle of Nowhere.
 Right now, you can only get berries for food, and you need to eat to survive.""")
 
