@@ -34,7 +34,7 @@ def getamount(resource,condition=""):
     else:
         return "GetResourceAmountError"
 
-def changeamount(resource,condition="",change):
+def changeamount(resource,change,condition=""):
     if resource in resourcedictionary:
         resourcedictionary[resource] = resourcedictionary[resource] + change
     elif resource in fooddictionary:
@@ -48,7 +48,7 @@ def changeamount(resource,condition="",change):
     else:
         return "ChangeResourceAmountError"
 
-def setamount(resource,condition ="",amount):
+def setamount(resource,amount,condition =""):
     if resource in resourcedictionary:
         resourcedictionary[resource] = amount
     elif resource in fooddictionary:
