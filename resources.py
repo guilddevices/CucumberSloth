@@ -1,4 +1,3 @@
-
 resourcedictionary = {
     wood: 0
     stone: 0
@@ -6,9 +5,20 @@ resourcedictionary = {
 }
 
 def getamount(resource):
-    if resource in resourcedictionary
+    if resource in resourcedictionary:
         return resourcedictionary[resource]
     else:
-        return f"There are no {resource} in your inventory"
+        return "GetResourceAmountError"
 
+def changeamount(resource,change):
+    if resource in resourcedictionary:
+        resourcedictionary[resource] = resourcedictionary[resource] + change
+    else:
+        return "ChangeResourceAmountError"
+
+def setamount(resource,amount):
+    if resource in resourcedictionary:
+        resourcedictionary[resource] = amount
+    else:
+        return "SetResourceAmountError"     
 
