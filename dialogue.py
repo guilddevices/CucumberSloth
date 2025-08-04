@@ -8,8 +8,8 @@ dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
 
-def dialogue(message):
-    dialogue1 = message
+def dialogue(new_dialogue):
+    dialogue1 = new_dialogue
     dialogue2 = dialogue1
     dialogue3 = dialogue2
     dialogue1_display = tk.Label(root,text=dialogue1).pack(side=tk.RIGHT, pady=5)
