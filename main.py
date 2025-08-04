@@ -14,9 +14,7 @@ berries_counter = tk.Label(root, text = "Berries: 0")
 berries_counter.place(x=500,y=100)
 #Dialogue_Section
 dialogue = tk.Label(root,text=("""You are in Middle of Nowhere.
-You have 1 gatherer.
-Your gatherer can gather berries for food.
-Would you like your gatherer to gather berries?"""))
+You can get berries to eat, and you need berries"""))
 dialogue.place(x=1000,y=100)
 root.mainloop()
 global waitnumber
