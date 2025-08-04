@@ -31,8 +31,5 @@ berries_counter.place(x=500,y=100)
 dialogue = tk.Label(root,text=("""You are in Middle of Nowhere.
 Right now, you can only get berries for food, and you need to eat to survive."""))
 dialogue.place(x=1000,y=100)
-def update():
-    berries_counter.config(text=f"Berries: {getamount("berries")}")
-    brainstorm.config(text=f"Science: {getamount("berries")}")
 
 root.mainloop()

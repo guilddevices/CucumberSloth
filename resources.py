@@ -21,6 +21,10 @@ fooddictionary = {
 }
 # Nothing can be in food dictionary and resource dictionary.
 
+def update():
+    berries_counter.config(text=f"Berries: {getamount("berries")}")
+    brainstorm.config(text=f"Science: {getamount("berries")}")
+
 def getamount(resource,condition=""):
     if resource in resourcedictionary:
         return resourcedictionary[resource]
