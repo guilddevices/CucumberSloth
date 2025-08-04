@@ -30,7 +30,7 @@ def add_something(item, button, counter):
 #Berries
 def berry_gather():
     berries_button.config(state="disabled")
-    berries_button.after(5000, add_something("berries", berries_button, berries_counter))
+    berries_button.after(5000, lambda: add_something("berries", berries_button, berries_counter))
     update()
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 berries_button.place(x=0,y=100)
