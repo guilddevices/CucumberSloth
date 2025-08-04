@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from main import root
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
