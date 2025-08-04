@@ -13,6 +13,6 @@ if whattodo.lower() == "yes":
         print(f"Waiting: {waitnumber}", end="\r", flush=True)
         time.sleep(1)
         waitnumber -= 1
-    changeamount("berries", 1)
+    changeamount("berries", 2)
     print(f"Berries: {getamount("berries")}")
-whattodo = input("""Would you li""")
+whattodo = input("""You need to pay your gatherer in 5 berries """)
