@@ -12,7 +12,7 @@ science_tree = {
     }
 }
 have_science = {
-    "foraging": False
+    "foraging": False,
     "wood collecting": False
 }
 
