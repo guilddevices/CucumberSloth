@@ -1,7 +1,7 @@
 import time
 import sys
 from resources import *
-from dialogue import *
+from dialogue_handling import *
 import tkinter as tk
 from tech import *
 root = tk.Tk()
@@ -28,6 +28,6 @@ science_counter.place(x=100,y=100)
 
 dialogue = """You are in Middle of Nowhere.
 Right now, you can only get berries for food, and you need to eat to survive."""
-adddialogue(dialogue)
+add_dialogue(dialogue)
 
 root.mainloop()

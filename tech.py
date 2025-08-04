@@ -1,6 +1,6 @@
 from resources import *
 from main import *
-from dialogue import *
+from dialogue_handling import *
 
 science_tree = {
     "lumberjack": {
