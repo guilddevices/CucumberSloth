@@ -9,7 +9,8 @@ Your gatherer can gather food.
 Would you like your gatherer to gather berries?
 """)
 if whattodo.lower() == "yes":
-    for i in range(waitnumber, 0, -1):
+    for x in range(waitnumber):
         time.sleep(1)
-        print(f"Wating: {waitnumber}", end="/r", flush=True)
+        print(f"Waiting: {waitnumber}", end="\r", flush=True)
+        waitnumber -= 1
 #print(f"Berries: {getamount(berries)}")
