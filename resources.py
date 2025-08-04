@@ -19,7 +19,7 @@ fooddictionary = {
 }
 #Nothing can be in food dictionary and resource dictionary.
 
-def resourcegetamount(resource,condition=""):
+def getamount(resource,condition=""):
     if resource in resourcedictionary:
         return resourcedictionary[resource]
     elif resource in fooddictionary:
@@ -34,11 +34,25 @@ def resourcegetamount(resource,condition=""):
     else:
         return "GetResourceAmountError"
 
-def resourcechangeamount(resource,change):
+def changeamount(resource,change):
     if resource in resourcedictionary:
         resourcedictionary[resource] = resourcedictionary[resource] + change
+    elif resource in fooddictionary:
+        if type(fooddictionary[resource]) is dict:
+            if condition is "raw" or "fried" or "roasted"
+                fooddictionary[resource][condition] = fooddictionary[resource][condition] + change
+            else:
+                return "FoodTypeError"
+        else:
+            return fooddictionary[resource]
     else:
         return "ChangeResourceAmountError"
+
+def setamount(resource,amount):
+    if resource in resourcedictionary:
+        resourcedictionary[resource] = amount
+    else:
+        return "SetResourceAmountError"
 
 def foodchangeamount(resource,change):
     if resource in resourcedictionary:
