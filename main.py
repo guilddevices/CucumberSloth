@@ -1,5 +1,5 @@
 import time
-import sys
+import sys 
 from resources import *
 global waitnumber
 waitnumber = 5
