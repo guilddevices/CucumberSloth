@@ -1,5 +1,3 @@
-import time
-import sys
 from resources import *
 import tkinter as tk
 from tech import *
@@ -23,14 +21,17 @@ def dialogue_pop_up(new_dialogue):
     dialogue2_display = tk.Label(root, text=dialogue2,width=20,wraplength=100).pack(side=tk.TOP, pady=5)
     dialogue3_display = tk.Label(root, text=dialogue3,width=20,wraplength=100).pack(side=tk.TOP, pady=5)
 
-def add_something(item, button):
+"""def add_something(item, button):
     changeamount(item, 1)
     update()
-    button.config(state="normal")
+    button.config(state="normal")"""
 #Berries
 def berry_gather():
     berries_button.config(state="disabled")
-    berries_button.after(5000, lambda: add_something("berries", berries_button))
+#    berries_button.after(5000, lambda: add_something("berries", berries_button))
+    berries_button.after(5000, lambda: changeamount("berries", 1))
+    berries_button.after(5000, lambda: update())
+    berries_button.after(5000, lambda: berries_button.config(state="normal"))
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 berries_button.place(x=0,y=100)
 berries_counter = tk.Label(root, text = "Berries: 0")
