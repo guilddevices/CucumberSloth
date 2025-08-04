@@ -19,6 +19,3 @@ def research(item):
     have_science[item] = True
     update()
     return "Succesfully Bought"
-
-    
-
