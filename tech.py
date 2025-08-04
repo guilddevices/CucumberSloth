@@ -19,6 +19,7 @@ def research(item):
     for resource in science_tree[item]:
 
     have_science[item] = True
+    
 
     return "Succesfully Bought"
 

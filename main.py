@@ -19,7 +19,7 @@ berries_counter.place(x=500,y=100)
 
 def brainstorm():
     brainstorm.config(state="disabled")
-    brainstorn.config(text=f"Science: {getamount("berries")}")
+    brainstorm.config(text=f"Science: {getamount("berries")}")
     brainstorm.after(30000, lambda: brainstorm.config(state="normal"))
     changeamount("brainstorm",1)
 
@@ -31,8 +31,8 @@ berries_counter.place(x=500,y=100)
 dialogue = tk.Label(root,text=("""You are in Middle of Nowhere.
 Right now, you can only get berries for food, and you need to eat to survive."""))
 dialogue.place(x=1000,y=100)
-command_dictionary = {
-    "berries": berry_gather()
-    "science_1": brainstorm()
-}
+def update():
+    berries_counter.config(text=f"Berries: {getamount("berries")}")
+    brainstorm.config(text=f"Science: {getamount("berries")}")
+
 root.mainloop()
