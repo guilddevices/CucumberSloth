@@ -1,4 +1,5 @@
 from resources import *
+from main import *
 
 science_tree = {
     "lumberjack": {
@@ -15,7 +16,10 @@ def research(item):
             return("Not Enough Resources")
     for resource in science_tree[item]:
         changeamount(resource,-science_tree[item][resource])
+    for resource in science_tree[item]:
+        
     have_science[item] = True
+
     return "Succesfully Bought"
 
     
