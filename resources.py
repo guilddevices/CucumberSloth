@@ -1,5 +1,5 @@
 from main import *
-
+global resourcedictionary
 resourcedictionary = {
     "wood": 0,
     "stone": 0,
