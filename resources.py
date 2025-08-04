@@ -1,6 +1,7 @@
 resourcedictionary = {
     "wood": 0,
     "stone": 0
+    "money": 0
 }
 fooddictionary = {
     "berries": 0,
@@ -17,7 +18,7 @@ fooddictionary = {
     "vegetables": 0,
     "fruits": 0
 }
-#Nothing can be in food dictionary and resource dictionary.
+# Nothing can be in food dictionary and resource dictionary.
 
 def getamount(resource,condition=""):
     if resource in resourcedictionary:
