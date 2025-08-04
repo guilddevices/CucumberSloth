@@ -1,24 +1,56 @@
 resourcedictionary = {
-    wood: 0
+    wood: 0,
     stone: 0
-    food: 0
 }
+fooddictionary = {
+    berries: 0,
+    meat: {
+    raw: 0,
+    fried: 0,
+    roasted: 0,
+},
+    fish: {
+    raw: 0,
+    fried: 0,
+    roasted: 0,
+},
+    vegetables: 0,
+    fruits: 0
+}
+#Nothing can be in food dictionary and resource dictionary.
 
-def getamount(resource):
+def resourcegetamount(resource):
     if resource in resourcedictionary:
         return resourcedictionary[resource]
     else:
         return "GetResourceAmountError"
 
-def changeamount(resource,change):
+def resourcechangeamount(resource,change):
     if resource in resourcedictionary:
         resourcedictionary[resource] = resourcedictionary[resource] + change
     else:
         return "ChangeResourceAmountError"
 
-def setamount(resource,amount):
+def resourcesetamount(resource,amount):
     if resource in resourcedictionary:
         resourcedictionary[resource] = amount
     else:
-        return "SetResourceAmountError"     
+        return "SetResourceAmountError"    
 
+def foodgetamount(resource):
+    if resource in resourcedictionary:
+        return resourcedictionary[resource]
+    else:
+        return "GetResourceAmountError"
+
+def foodchangeamount(resource,change):
+    if resource in resourcedictionary:
+        resourcedictionary[resource] = resourcedictionary[resource] + change
+    else:
+        return "ChangeResourceAmountError"
+
+def foodsetamount(resource,amount):
+    if resource in resourcedictionary:
+        resourcedictionary[resource] = amount
+    else:
+        return "SetResourceAmountError"   
