@@ -11,7 +11,13 @@ def berry_gather():
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 berries_button.place(x=0,y=100)
 berries_counter = tk.Label(root, text = "Berries: 0")
-berries_counter.place(x=100,y=100)
+berries_counter.place(x=500,y=100)
+#Dialogue_Section
+dialogue = tk.Label(root,text=("""You are in Middle of Nowhere.
+You have 1 gatherer.
+Your gatherer can gather berries for food.
+Would you like your gatherer to gather berries?"""))
+dialogue.place(x=1000,y=100)
 root.mainloop()
 global waitnumber
 waitnumber = 5
