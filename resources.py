@@ -2,6 +2,7 @@ resourcedictionary = {
     "wood": 0,
     "stone": 0,
     "money": 0
+    "science": 0
 }
 fooddictionary = {
     "berries": 0,
