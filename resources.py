@@ -22,9 +22,6 @@ fooddictionary = {
 }
 # Nothing can be in food dictionary and resource dictionary.
 
-def update():
-    berries_button.config(text=f"Berries: {getamount("berries")}")
-    science_counter.config(text=f"Science: {getamount("science")}")
 
 
 def getamount(resource,condition=""):
