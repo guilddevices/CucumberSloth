@@ -5,7 +5,7 @@ dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
 
-def add_dialogue(new_dialogue):
+def dialogue_pop_up(new_dialogue):
     dialogue1 = new_dialogue
     dialogue2 = dialogue1
     dialogue3 = dialogue2

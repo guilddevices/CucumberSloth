@@ -28,6 +28,6 @@ science_counter.place(x=100,y=100)
 
 dialogue = """You are in Middle of Nowhere.
 Right now, you can only get berries for food, and you need to eat to survive."""
-add_dialogue(dialogue)
+dialogue_pop_up(dialogue)
 
 root.mainloop()
