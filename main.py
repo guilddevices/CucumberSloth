@@ -1,1 +1,2 @@
-#THIS FILE IS HEREE>.... I HOPE
+wood = 1
+print(wood)
