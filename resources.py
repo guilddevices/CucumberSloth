@@ -1,21 +1,21 @@
 resourcedictionary = {
-    wood: 0,
-    stone: 0
+    "wood": 0,
+    "stone": 0
 }
 fooddictionary = {
-    berries: 0,
-    meat: {
-    raw: 0,
-    fried: 0,
-    roasted: 0,
+    "berries": 0,
+    "meat": {
+    "raw": 0,
+    "fried": 0,
+    "roasted": 0,
 },
-    fish: {
-    raw: 0,
-    fried: 0,
-    roasted: 0,
+    "fish": {
+    "raw": 0,
+    "fried": 0,
+    "roasted": 0,
 },
-    vegetables: 0,
-    fruits: 0
+    "vegetables": 0,
+    "fruits": 0
 }
 #Nothing can be in food dictionary and resource dictionary.
 
@@ -44,7 +44,7 @@ def changeamount(resource,change):
             else:
                 return "FoodTypeError"
         else:
-            return fooddictionary[resource]
+            fooddictionary[resource] = fooddictionary[resource] + change
     else:
         return "ChangeResourceAmountError"
 
