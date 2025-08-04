@@ -23,19 +23,20 @@ def dialogue_pop_up(new_dialogue):
     dialogue2_display = tk.Label(root, text=dialogue2).pack(side=tk.RIGHT, pady=5)
     dialogue3_display = tk.Label(root, text=dialogue3).pack(side=tk.RIGHT, pady=5)
 
+def add_something(item, button, counter):
+    changeamount(item, 1)
+    button.config(state="normal")
+    counter.config(text=f"{item.proper()}: {getamount(item)}")
 #Berries
-def add_something(item, variable):
-    getamount(item, 1)
-    variable.config(text=f"{item.proper()}: {getamount(item)}")
-    variable.config(state="normal")
 def berry_gather():
     berries_button.config(state="disabled")
-    berries_button.after(5000, add_something("berries", berries_button))
+    berries_button.after(5000, add_something("berries", berries_button, berries_counter))
     berries_counter.config(text=f"Berries: {getamount("berries")}")
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 berries_button.place(x=0,y=100)
 berries_counter = tk.Label(root, text = "Berries: 0")
 berries_counter.place(x=500,y=100)
+#Science
 def brainstorm():
     brainstorm_button.config(state="disabled")
     brainstorm_button.after(30000, lambda: brainstorm_button.config(state="normal"))
