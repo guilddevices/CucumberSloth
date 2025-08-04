@@ -1,11 +1,11 @@
 import time
-import sys 
+import sys
 from resources import *
 global waitnumber
 waitnumber = 5
 whattodo = input("""You are in Middle of Nowhere.
 You have 1 gatherer.
-Your gatherer can gather food.
+Your gatherer can gather berries for food.
 Would you like your gatherer to gather berries?
 """)
 if whattodo.lower() == "yes":
@@ -14,4 +14,5 @@ if whattodo.lower() == "yes":
         time.sleep(1)
         waitnumber -= 1
     changeamount("berries", 1)
-print(f"Berries: {getamount("berries")}")
+    print(f"Berries: {getamount("berries")}")
+whattodo = input("""Would you li""")
