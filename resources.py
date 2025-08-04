@@ -8,12 +8,12 @@ fooddictionary = {
     "meat": {
     "raw": 0,
     "fried": 0,
-    "roasted": 0,
+    "roasted": 0
 },
     "fish": {
     "raw": 0,
     "fried": 0,
-    "roasted": 0,
+    "roasted": 0
 },
     "vegetables": 0,
     "fruits": 0
