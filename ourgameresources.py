@@ -1,10 +1,5 @@
 from variables import *
 
-
-def update():
-    berries_counter.config(text=f"Berries: {getamount("berries")}")
-    science_counter.config(text=f"Science: {getamount("science")}")
-
 def getamount(resource,condition=""):
     if resource in resourcedictionary:
         return resourcedictionary[resource]

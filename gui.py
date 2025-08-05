@@ -1,8 +1,12 @@
-from variables import *
+from ourgameresources import *
 #Dialogue
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
+
+def update():
+    berries_counter.config(text=f"Berries: {getamount("berries")}")
+    science_counter.config(text=f"Science: {getamount("science")}")
 
 def dialogue_pop_up(new_dialogue):
     global dialogue1
