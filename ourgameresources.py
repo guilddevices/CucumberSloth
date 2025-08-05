@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 from main import berries_counter, science_counter
->>>>>>> 97c597c3373d2a5b674c263b9c5fce934579ed05
 resourcedictionary = {
     "wood": 0,
     "stone": 0,
