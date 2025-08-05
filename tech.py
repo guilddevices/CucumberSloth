@@ -1,5 +1,5 @@
 from ourgameresources import *
-from main import *
+from main import dialogue_pop_up, update
 
 science_tree = {
     "foraging": {

@@ -1,6 +1,5 @@
-from ourgameresources import *
 from tech import *
-from main import update
+from ourgameresources import *
 import random
 
 #Forage-Button

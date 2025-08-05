@@ -2,8 +2,8 @@ global berries_button
 global science_counter
 global berries_counter
 global brainstorm_button
-from ourgameresources import *
 import tkinter as tk
+from ourgameresources import *
 from tech import *
 from dev import *
 root = tk.Tk()
@@ -39,7 +39,7 @@ berries_counter.place(x=500,y=100)
 def brainstorm():
     brainstorm_button.config(state="disabled")
     brainstorm_button.after(29999, lambda: changeamount("berries", 1))
-    science_counter.after(30000, lambda: update(berries_counter, science_counter))
+    science_counter.after(30000, lambda: update())
     brainstorm_button.after(30001, lambda: berries_button.config(state="normal"))
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 brainstorm_button.place(x=0,y=500)
