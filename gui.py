@@ -1,5 +1,6 @@
 from ourgameresources import *
 import tkinter as tk
+from dev import *
 #Dialogue
 dialogue1 = ""
 dialogue2 = ""
@@ -42,7 +43,6 @@ brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 brainstorm_button.place(x=0,y=500)
 science_counter = tk.Label(root, text = "Science: 0")
 science_counter.place(x=100,y=100)
-
 
 root.after(500,devkey)
 root.mainloop()
