@@ -2,7 +2,7 @@ global berries_button
 global science_counter
 global berries_counter
 global brainstorm_button
-from resources import *
+from resourcemanager import *
 import tkinter as tk
 from tech import *
 from dev import *

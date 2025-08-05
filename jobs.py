@@ -1,4 +1,4 @@
-from resources import *
+from resourcemanager import *
 from tech import *
 from main import update
 import random

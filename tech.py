@@ -1,4 +1,4 @@
-from resources import *
+from resourcemanager import *
 from main import *
 
 science_tree = {
