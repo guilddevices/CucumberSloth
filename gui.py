@@ -4,11 +4,7 @@ import tkinter as tk
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
-def initialize():
-    root = tk.Tk()
-    root.title("Name of our Game")
-
-    def devkey():
+def devkey():
         key = input("What is the key? ")
         if key != "~":
             return
@@ -17,11 +13,12 @@ def initialize():
                 changeamount(x,10000)
             update()
 
-    def update():
-        berries_counter.config(text=f"Berries: {getamount("berries")}")
-        science_counter.config(text=f"Science: {getamount("science")}")
 
-    def dialogue_pop_up(new_dialogue):
+def update():
+    berries_counter.config(text=f"Berries: {getamount("berries")}")
+    science_counter.config(text=f"Science: {getamount("science")}")
+
+def dialogue_pop_up(new_dialogue):
         dialogue3 = dialogue2
         dialogue2 = dialogue1
         dialogue1 = new_dialogue
@@ -29,22 +26,28 @@ def initialize():
         dialogue2_display = tk.Label(root, text=dialogue2,width=20,wraplength=100).place(relx=1.0, rely=0.0, anchor="ne").pack(side=tk.TOP, pady=5)
         dialogue3_display = tk.Label(root, text=dialogue3,width=20,wraplength=100).place(relx=1.0, rely=0.0, anchor="ne").pack(side=tk.TOP, pady=5)
 
-    #Berries
-    def berry_gather():
+def berry_gather():
         berries_button.config(state="disabled")
         berries_button.after(4999, lambda: changeamount("berries", 1))
         berries_counter.after(5000, lambda: update(berries_counter, science_counter))
         berries_button.after(5001, lambda: berries_button.config(state="normal"))
     berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
-    berries_button.place(x=0,y=100)
-    berries_counter = tk.Label(root, text = "Berries: 0")
-    berries_counter.place(x=500,y=100)
-    #Brainstorm
-    def brainstorm():
+
+def brainstorm():
         brainstorm_button.config(state="disabled")
         brainstorm_button.after(29999, lambda: changeamount("berries", 1))
         science_counter.after(30000, lambda: update(berries_counter, science_counter))
         brainstorm_button.after(30001, lambda: berries_button.config(state="normal"))
+
+def initialize():
+    root = tk.Tk()
+    root.title("Name of our Game")
+
+    #Berries
+    berries_button.place(x=0,y=100)
+    berries_counter = tk.Label(root, text = "Berries: 0")
+    berries_counter.place(x=500,y=100)
+    #Brainstorm
     brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
     brainstorm_button.place(x=0,y=500)
     science_counter = tk.Label(root, text = "Science: 0")
