@@ -50,7 +50,7 @@ science_counter = tk.Label(root, text = "Science: 0")
 
 def initialize():
     global root
-    root = tk.Tk()
+    root = tk.Tk() 
     root.title("Name of our Game")
     #Berries
     berries_button.place(x=0,y=100)

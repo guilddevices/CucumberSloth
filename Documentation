@@ -15,4 +15,6 @@ update() This updates all counters on the screen to their actual resource count.
 
 dialogue_pop_up(new_dialogue) This is a function displaying the dialogue that you made. It will shift all other dialogue down accordingly and can only display three dialogue at once. 
 
-brainstorm() When the brainstorm button is clicked, it waits 30 seconds and then adds 
+brainstorm() When the brainstorm button is clicked, it waits 30 seconds and then adds one science.
+
+berry_gather() 
