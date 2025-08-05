@@ -1,4 +1,5 @@
 from ourgameresources import *
+import tkinter as tk
 #Dialogue
 dialogue1 = ""
 dialogue2 = ""
