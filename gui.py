@@ -13,7 +13,8 @@ def devkey():
         for x in resourcedictionary:
             changeamount(x,10000)
         update()
-
+def disable(press_button):
+    press_button.config(state="disabled")
 
 def update():
     berries_counter.config(text=f"Berries: {getamount("berries")}")
@@ -29,32 +30,33 @@ def dialogue_pop_up(new_dialogue):
     dialogue3_display = tk.Label(root, text=dialogue3,width=20,wraplength=100).place(relx=1.0, rely=0.0, anchor="ne").pack(side=tk.TOP, pady=5)
 
 def berry_gather():
-    berries_button.config(state="disabled")
+    disable(berries_button)
     berries_button.after(4999, lambda: changeamount("berries", 1))
-    berries_counter.after(5000, lambda: update(berries_counter, science_counter))
+    berries_counter.after(5000, lambda: update())
     berries_button.after(5001, lambda: berries_button.config(state="normal"))
 
 def brainstorm():
-    brainstorm_button.config(state="disabled")
+    disable(brainstorm_button)
     brainstorm_button.after(29999, lambda: changeamount("berries", 1))
-    science_counter.after(30000, lambda: update(berries_counter, science_counter))
+    science_counter.after(30000, lambda: update())
     brainstorm_button.after(30001, lambda: berries_button.config(state="normal"))
 
 #Berries
+global berries_button, science_counter, berries_counter, brainstorm_button
+berries_counter = tk.Label(root, text = "Berries: 0")
+berries_button = tk.Button(root, text="Gather Berries", command=berry_gather())
+brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm())
+science_counter = tk.Label(root, text = "Science: 0")
 
 
 def initialize():
     root = tk.Tk()
     root.title("Name of our Game")
     #Berries
-    berries_counter = tk.Label(root, text = "Berries: 0")
-    berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
     berries_button.place(x=0,y=100)
     berries_counter.place(x=500,y=100)
         
     #Brainstorm
-    brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
-    science_counter = tk.Label(root, text = "Science: 0")
     brainstorm_button.place(x=0,y=500)
     science_counter.place(x=100,y=100)
 
