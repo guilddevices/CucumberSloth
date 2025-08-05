@@ -2,7 +2,7 @@ from ourgameresources import *
 import tkinter as tk
 #Dialogue
 dialogue1 = ""
-dialogue2 = ""d
+dialogue2 = ""
 dialogue3 = ""
 def initialize():
     root = tk.Tk()
