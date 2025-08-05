@@ -4,6 +4,8 @@ import tkinter as tk
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
+root = tk.Tk()
+root.title("Name of our Game")
 
 def update():
     berries_counter.config(text=f"Berries: {getamount("berries")}")
