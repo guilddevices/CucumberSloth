@@ -5,10 +5,10 @@ global berries_button, berries_counter, brainstorm_button, science_counter
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
+global root
+root = tk.Tk() 
+root.title("Name of our Game")
 def initialize():
-    global root
-    root = tk.Tk() 
-    root.title("Name of our Game")
     #Berries
     berries_button.place(x=0,y=100)
     berries_counter.place(x=500,y=100)
@@ -35,7 +35,6 @@ def update():
     science_counter.config(text=f"Science: {getamount("science")}")
 
 def dialogue_pop_up(new_dialogue):
-    global root
     dialogue3 = dialogue2
     dialogue2 = dialogue1
     dialogue1 = new_dialogue
