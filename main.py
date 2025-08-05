@@ -12,7 +12,7 @@ def frame():
     if eatclock == 0:
         eat()
     time.sleep(1/60)
-while True do:
+while True:
     frame()
 
 #gameloop
