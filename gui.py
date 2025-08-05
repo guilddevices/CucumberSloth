@@ -1,5 +1,6 @@
 from ourgameresources import *
 import tkinter as tk
+import random
 #Dialogue
 dialoguelist = []
 global berries_button, berries_counter, brainstorm_button, science_counter
@@ -36,17 +37,18 @@ def update():
 
 def dialogue_pop_up(new_dialogue):
     dialoguelist.insert(0,new_dialogue)
-    if dialoguelist >= 10:
+    if len(dialoguelist) >= 10:
         dialoguelist[9] = ""
-    new_dialogue = Label(root, text = new_dialogue)
+    new_dialogue = tk.Label(root, text = new_dialogue)
     new_dialogue.place(relx=1, rely=0, anchor='ne')
     
 
 def berry_gather():
+    number = random.randint(3,5)
     disable(berries_button)
-    berries_button.after(4999, lambda: changeamount("berries", 1))
-    berries_counter.after(5000, lambda: update())
-    berries_button.after(5001, lambda: berries_button.config(state="normal"))
+    berries_button.after(number*1000-1, lambda: changeamount("berries", 1))
+    berries_counter.after(number*1000, lambda: update())
+    berries_button.after(number*1000+1, lambda: berries_button.config(state="normal"))
 
 def brainstorm():
     disable(brainstorm_button)
