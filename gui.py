@@ -1,6 +1,7 @@
 from ourgameresources import *
 import tkinter as tk
 #Dialogue
+global root
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
@@ -19,6 +20,7 @@ def update():
     science_counter.config(text=f"Science: {getamount("science")}")
 
 def dialogue_pop_up(new_dialogue):
+    global root
     dialogue3 = dialogue2
     dialogue2 = dialogue1
     dialogue1 = new_dialogue
