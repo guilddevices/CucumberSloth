@@ -17,4 +17,6 @@ dialogue_pop_up(new_dialogue) This is a function displaying the dialogue that yo
 
 brainstorm() When the brainstorm button is clicked, it waits 30 seconds and then adds one science.
 
-berry_gather() 
+berry_gather() When the berry button is clicked, it waits 3,4 or 5 seconds depending on what it picks, and then adds one berry.
+
+initialize() Starts and runs the code.
