@@ -1,4 +1,4 @@
-from resourcemanager import *
+from ourgameresources import *
 from main import *
 
 science_tree = {

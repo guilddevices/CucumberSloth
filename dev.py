@@ -1,4 +1,4 @@
-from resourcemanager import *
+from ourgameresources import *
 
 def devkey():
     key = input("What is the key? ")
