@@ -25,9 +25,9 @@ def dialogue_pop_up(new_dialogue):
     dialogue3 = dialogue2
     dialogue2 = dialogue1
     dialogue1 = new_dialogue
-    dialogue1_display = tk.Label(root, text=dialogue1,width=20,wraplength=100).place(relx=1.0, rely=0.0, anchor="ne").pack(side=tk.TOP, pady=5)
-    dialogue2_display = tk.Label(root, text=dialogue2,width=20,wraplength=100).place(relx=1.0, rely=0.0, anchor="ne").pack(side=tk.TOP, pady=5)
-    dialogue3_display = tk.Label(root, text=dialogue3,width=20,wraplength=100).place(relx=1.0, rely=0.0, anchor="ne").pack(side=tk.TOP, pady=5)
+    dialogue1_display = tk.Label(root, text=dialogue1,width=20,wraplength=100).place(x=1000,y=500).pack(side=tk.TOP, pady=5)
+    dialogue2_display = tk.Label(root, text=dialogue2,width=20,wraplength=100).place(x=1000,y=500).pack(side=tk.TOP, pady=5)
+    dialogue3_display = tk.Label(root, text=dialogue3,width=20,wraplength=100).place(x=1000,y=500).pack(side=tk.TOP, pady=5)
 
 def berry_gather():
     disable(berries_button)
