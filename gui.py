@@ -1,8 +1,7 @@
 from ourgameresources import *
 import tkinter as tk
 #Dialogue
-global berries_button, berries_counter, brainstorm_button, science_counter, root
-root=tk.Tk()
+global berries_button, berries_counter, brainstorm_button, science_counter
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
@@ -50,6 +49,7 @@ science_counter = tk.Label(root, text = "Science: 0")
 
 
 def initialize():
+    global root
     root = tk.Tk()
     root.title("Name of our Game")
     #Berries
