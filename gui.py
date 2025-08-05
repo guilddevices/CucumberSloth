@@ -35,12 +35,14 @@ def update():
     berries_counter.config(text=f"Berries: {getamount("berries")}")
     science_counter.config(text=f"Science: {getamount("science")}")
 
+dialogue_label = tk.Label(root, text="", justify="left", anchor="ne")
+dialogue_label.place(relx=1, rely=0, anchor='ne')
 def dialogue_pop_up(new_dialogue):
     dialoguelist.insert(0,new_dialogue)
     if len(dialoguelist) >= 10:
-        dialoguelist[9] = ""
+        dialoguelist.pop()
     new_dialogue = tk.Label(root, text = new_dialogue)
-    new_dialogue.place(relx=1, rely=0, anchor='ne')
+    dialogue_label.config(text="\n".join(dialoguelist))
     
 
 def berry_gather():
