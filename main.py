@@ -8,9 +8,6 @@ from tech import *
 from dev import *
 root = tk.Tk()
 root.title("Name of our Game")
-def update():
-    berries_counter.config(text=f"Berries: {getamount("berries")}")
-    science_counter.config(text=f"Science: {getamount("science")}")
 
 #Dialogue
 dialogue1 = ""

@@ -1,14 +1,16 @@
 getamount(string,condition) The condition is optional and only for food types. The condition should only be raw, fried or roasted if necessary.
-This function gets how much of that resource you have.
+This function gets how much of that resource you have. It is in ourgameresources.py
 
 changeamount(resource,change,condition) The condition is optional and only for food types. The condition should only be raw, fried or roasted if necessary.
-This function changes how much of that you have by +(change). This accepts negative values but doesn't update it on screen.
+This function changes how much of that you have by +(change). This accepts negative values but doesn't update it on screen. It is in ourgameresources.py
 
 setamount(resource,amount,condition) The condition is optional and only for food types. The condition should only be raw, fried or roasted if necessary.
-This functions sets a resource to the amount specified.
+This functions sets a resource to the amount specified. It is in ourgameresources.py
 
 research(item) 
 if it is possible to buy, it will buy it, send dialogue that it is succesfully bought and set the key on the have_science to true.
-if it isn't possible, it will send dialogue that "You don't have enough resources and exit the script.
+if it isn't possible, it will send dialogue that "You don't have enough resources and exit the script. It is in tech.py
 
-update() This updates all counters on the screen to their actual resource count.
+update() This updates all counters on the screen to their actual resource count. It is in ourgameresources.py
+
+dialogue_pop_up(new_dialogue) This is a function displaying the dialogue that you made. It will shift all other dialogue down accordingly and can only display three dialogue at once. 

@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+from main import berries_counter, science_counter
+>>>>>>> 97c597c3373d2a5b674c263b9c5fce934579ed05
 resourcedictionary = {
     "wood": 0,
     "stone": 0,
@@ -21,7 +24,9 @@ fooddictionary = {
 }
 # Nothing can be in food dictionary and resource dictionary.
 
-
+def update():
+    berries_counter.config(text=f"Berries: {getamount("berries")}")
+    science_counter.config(text=f"Science: {getamount("science")}")
 
 def getamount(resource,condition=""):
     if resource in resourcedictionary:
