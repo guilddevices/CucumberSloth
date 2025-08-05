@@ -45,6 +45,7 @@ brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 science_counter = tk.Label(root, text = "Science: 0")
 
 def initialize():
+    global root
     root = tk.Tk()
     root.title("Name of our Game")
 
