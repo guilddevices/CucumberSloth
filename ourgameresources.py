@@ -1,26 +1,5 @@
-from main import berries_counter, science_counter
-resourcedictionary = {
-    "wood": 0,
-    "stone": 0,
-    "money": 0,
-    "science": 0
-}
-fooddictionary = {
-    "berries": 0,
-    "meat": {
-    "raw": 0,
-    "fried": 0,
-    "roasted": 0
-},
-    "fish": {
-    "raw": 0,
-    "fried": 0,
-    "roasted": 0
-},
-    "vegetables": 0,
-    "fruits": 0
-}
-# Nothing can be in food dictionary and resource dictionary.
+from variables import *
+
 
 def update():
     berries_counter.config(text=f"Berries: {getamount("berries")}")
