@@ -17,6 +17,7 @@ def initialize():
 
     root.after(500,devkey)
     root.mainloop()
+
 def devkey():
     key = input("What is the key? ")
     if key != "~":
@@ -25,6 +26,7 @@ def devkey():
         for x in resourcedictionary:
             changeamount(x,10000)
         update()
+
 def disable(press_button):
     press_button.config(state="disabled")
 
@@ -36,6 +38,7 @@ def dialogue_pop_up(new_dialogue):
     dialoguelist.insert(0,new_dialogue)
     if dialoguelist >= 10:
         dialoguelist[9] = ""
+    new_dialogue = Label(root, text = new_dialogue)
     new_dialogue.place(relx=1, rely=0, anchor='ne')
     
 
