@@ -9,4 +9,3 @@ def forage():
         changeamount("vegetables",1)
     if random.random() < 0.02:
         changeamount("fruits",1)
-    update()
