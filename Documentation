@@ -1,0 +1,12 @@
+getamount(string,condition) The condition is optional and only for food types. The condition should only be raw, fried or roasted if necessary.
+This function gets how much of that resource you have.
+
+changeamount(resource,change,condition) The condition is optional and only for food types. The condition should only be raw, fried or roasted if necessary.
+This function changes how much of that you have by +(change). This accepts negative values but doesn't update it on screen.
+
+setamount(resource,amount,condition) The condition is optional and only for food types. The condition should only be raw, fried or roasted if necessary.
+This functions sets a resource to the amount specified.
+
+research(item) 
+if it is possible to buy, it will buy it, send dialogue that it is succesfully bought and set the key on the have_science to true.
+if it isn't possible, it will send dialogue that "You don't have enough resources and exit the script.
