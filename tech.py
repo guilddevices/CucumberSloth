@@ -20,11 +20,12 @@ def research(item):
         for resource in science_tree[item]:
             if resource != "description":
                 if science_tree[item][resource] < getamount(resource):
-                    dialogue_pop_up("Not enough resources!")
+                    return("Not enough resources!")
+
         for resource in science_tree[item]:
             if resource != "description":
                 changeamount(resource,-science_tree[item][resource])
         have_science[item] = True
-        dialogue_pop_up(f"Succesfully researched {item}")
+        return(f"Succesfully researched {item}")
     else:
         return "ResearchError"
