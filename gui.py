@@ -1,12 +1,20 @@
 from ourgameresources import *
 import tkinter as tk
-from dev import *
 #Dialogue
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
 root = tk.Tk()
 root.title("Name of our Game")
+
+def devkey():
+    key = input("What is the key? ")
+    if key != "~":
+        return
+    else:
+        for x in resourcedictionary:
+            changeamount(x,10000)
+        update()
 
 def update():
     berries_counter.config(text=f"Berries: {getamount("berries")}")
