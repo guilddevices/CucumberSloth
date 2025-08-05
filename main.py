@@ -35,7 +35,7 @@ berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 berries_button.place(x=0,y=100)
 berries_counter = tk.Label(root, text = "Berries: 0")
 berries_counter.place(x=500,y=100)
-#Science
+#Brainstorm
 def brainstorm():
     brainstorm_button.config(state="disabled")
     brainstorm_button.after(29999, lambda: changeamount("berries", 1))
