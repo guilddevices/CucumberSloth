@@ -1,7 +1,7 @@
 from ourgameresources import *
 import tkinter as tk
 #Dialogue
-global root
+global berries_button, berries_counter, brainstorm_button, science_counter, root
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
@@ -41,21 +41,20 @@ def brainstorm():
     brainstorm_button.after(30001, lambda: berries_button.config(state="normal"))
 
 #Berries
-berries_counter = tk.Label(root, text = "Berries: 0")
-berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
-brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
-science_counter = tk.Label(root, text = "Science: 0")
+
 
 def initialize():
-    global root
     root = tk.Tk()
     root.title("Name of our Game")
-
     #Berries
+    berries_counter = tk.Label(root, text = "Berries: 0")
+    berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
     berries_button.place(x=0,y=100)
     berries_counter.place(x=500,y=100)
+        
     #Brainstorm
-    
+    brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
+    science_counter = tk.Label(root, text = "Science: 0")
     brainstorm_button.place(x=0,y=500)
     science_counter.place(x=100,y=100)
 
