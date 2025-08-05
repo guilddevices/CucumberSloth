@@ -10,3 +10,5 @@ This functions sets a resource to the amount specified.
 research(item) 
 if it is possible to buy, it will buy it, send dialogue that it is succesfully bought and set the key on the have_science to true.
 if it isn't possible, it will send dialogue that "You don't have enough resources and exit the script.
+
+update() This updates all counters on the screen to their actual resource count.
