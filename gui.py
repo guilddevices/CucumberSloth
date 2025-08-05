@@ -21,9 +21,6 @@ def update():
     science_counter.config(text=f"Science: {getamount("science")}")
 
 def dialogue_pop_up(new_dialogue):
-    global dialogue1
-    global dialogue2
-    global dialogue3
     dialogue3 = dialogue2
     dialogue2 = dialogue1
     dialogue1 = new_dialogue
