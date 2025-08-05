@@ -25,14 +25,9 @@ def dialogue_pop_up(new_dialogue):
     dialogue2_display = tk.Label(root, text=dialogue2,width=20,wraplength=100).pack(side=tk.TOP, pady=5)
     dialogue3_display = tk.Label(root, text=dialogue3,width=20,wraplength=100).pack(side=tk.TOP, pady=5)
 
-"""def add_something(item, button):
-    changeamount(item, 1)
-    update()
-    button.config(state="normal")"""
 #Berries
 def berry_gather():
     berries_button.config(state="disabled")
-#    berries_button.after(5000, lambda: add_something("berries", berries_button))
     berries_button.after(4999, lambda: changeamount("berries", 1))
     berries_counter.after(5000, lambda: update())
     berries_button.after(5001, lambda: berries_button.config(state="normal"))
