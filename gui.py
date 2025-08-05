@@ -2,6 +2,7 @@ from ourgameresources import *
 import tkinter as tk
 #Dialogue
 global berries_button, berries_counter, brainstorm_button, science_counter, root
+root=tk.Tk()
 dialogue1 = ""
 dialogue2 = ""
 dialogue3 = ""
@@ -37,15 +38,14 @@ def berry_gather():
 
 def brainstorm():
     disable(brainstorm_button)
-    brainstorm_button.after(29999, lambda: changeamount("berries", 1))
+    brainstorm_button.after(29999, lambda: changeamount("science", 1))
     science_counter.after(30000, lambda: update())
-    brainstorm_button.after(30001, lambda: berries_button.config(state="normal"))
+    brainstorm_button.after(30001, lambda: brainstorm_button.config(state="normal"))
 
 #Berries
-global berries_button, science_counter, berries_counter, brainstorm_button
 berries_counter = tk.Label(root, text = "Berries: 0")
-berries_button = tk.Button(root, text="Gather Berries", command=berry_gather())
-brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm())
+berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
+brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 science_counter = tk.Label(root, text = "Science: 0")
 
 
