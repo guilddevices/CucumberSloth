@@ -2,9 +2,9 @@ from ourgameresources import *
 import tkinter as tk
 #Dialogue
 global berries_button, berries_counter, brainstorm_button, science_counter
-dialogue1 = ""
-dialogue2 = ""
-dialogue3 = ""
+dialogue_history = []
+dialogue_labels = []
+MAX_DIALOGUES = 10
 global root
 root = tk.Tk() 
 root.title("Name of our Game")
@@ -35,13 +35,31 @@ def update():
     science_counter.config(text=f"Science: {getamount("science")}")
 
 def dialogue_pop_up(new_dialogue):
-    dialogue3 = dialogue2
-    dialogue2 = dialogue1
-    dialogue1 = new_dialogue
-    dialogue1_display = tk.Label(root, text=dialogue1,width=20,wraplength=100).place(x=1000,y=500).pack(side=tk.TOP, pady=5)
-    dialogue2_display = tk.Label(root, text=dialogue2,width=20,wraplength=100).place(x=1000,y=500).pack(side=tk.TOP, pady=5)
-    dialogue3_display = tk.Label(root, text=dialogue3,width=20,wraplength=100).place(x=1000,y=500).pack(side=tk.TOP, pady=5)
-
+    global dialogue_history, dialogue_labels, root, MAX_DIALOGUES
+    dialogue_history.append(new_dialogue)
+    if len(dialogue_history) > MAX_DIALOGUES:
+        dialogue_history.pop(0)
+    for label in dialogue_labels:
+        label.destroy()
+    dialogue_labels.clear()
+    dialogue_area_width = 300
+    padding_from_right_edge = 20
+    dialogue_start_y = 10
+    line_height = 25
+    x_pos = root.winfo_width() - dialogue_area_width - padding_from_right_edge
+    for i, dialogue_text in enumerate(reversed(dialogue_history)):
+        target_y = dialogue_start_y + (i * line_height)
+        label = tk.Label(root, text=dialogue_text,
+                         width=dialogue_area_width // 7,
+                         wraplength=dialogue_area_width - (2 * 5),
+                         bg="#282828", fg="#E0E0E0",
+                         font=("Inter", 10),
+                         anchor="nw", 
+                         justify="left",
+                         relief="flat",
+                         padx=5, pady=2)
+        label.place(x=x_pos, y=target_y)
+        dialogue_labels.append(label)
 def berry_gather():
     disable(berries_button)
     berries_button.after(4999, lambda: changeamount("berries", 1))
