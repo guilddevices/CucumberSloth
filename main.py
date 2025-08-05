@@ -37,7 +37,7 @@ def berry_gather():
     berries_button.config(state="disabled")
 #    berries_button.after(5000, lambda: add_something("berries", berries_button))
     berries_button.after(4999, lambda: changeamount("berries", 1))
-    berries_button.after(5000, lambda: update)
+    berries_counter.after(5000, lambda: update())
     berries_button.after(5001, lambda: berries_button.config(state="normal"))
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 berries_button.place(x=0,y=100)

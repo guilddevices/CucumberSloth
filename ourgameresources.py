@@ -1,4 +1,3 @@
-from main import *
 resourcedictionary = {
     "wood": 0,
     "stone": 0,
