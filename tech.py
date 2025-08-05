@@ -1,5 +1,4 @@
 from ourgameresources import *
-from main import dialogue_pop_up, update
 
 science_tree = {
     "foraging": {
@@ -26,7 +25,6 @@ def research(item):
             if resource != "description":
                 changeamount(resource,-science_tree[item][resource])
         have_science[item] = True
-        update()
         dialogue_pop_up(f"Succesfully researched {item}")
     else:
         return "ResearchError"
