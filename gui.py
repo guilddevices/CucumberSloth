@@ -1,6 +1,7 @@
 from ourgameresources import *
 from variables import *
 import tkinter as tk
+from dialogue import *
 import random
 #Dialogue
 dialoguelist = []
@@ -37,7 +38,22 @@ berries_counter = tk.Label(root, text = "Berries: 0")
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 science_counter = tk.Label(root, text = "Science: 0")
-
+def forage():
+    changeamount("berries",1)
+    if random.random() < 0.1:
+        vegetable = True
+        changeamount("vegetables",1)
+    if random.random() < 0.02:
+        fruit = True
+        changeamount("fruits",1)
+    if fruit and vegetable:
+        dialogue_pop_up(dialogue["forage"]["vegetable_fruit"])
+    elif vegetable:
+        dialogue_pop_up(dialogue["forage"]["vegetable"])
+    elif fruit:
+        dialogue_pop_up(dialogue["forage"]["fruit"])
+    else:
+        dialogue_pop_up(dialogue["forage"][random.randint(1,2)])
 
 def initialize():
     #Berries
