@@ -1,4 +1,5 @@
 from ourgameresources import *
+from variables import *
 import tkinter as tk
 import random
 #Dialogue
@@ -16,17 +17,17 @@ def initialize():
     brainstorm_button.place(x=0,y=500)
     science_counter.place(x=100,y=100)
 
-    root.after(500,devkey)
+    #root.after(500,devkey)
     root.mainloop()
 
-def devkey():
+"""def devkey():
     key = input("What is the key? ")
     if key != "~":
         return
     else:
         for x in resourcedictionary:
             changeamount(x,10000)
-        update()
+        update()"""
 
 def disable(press_button):
     press_button.config(state="disabled")
