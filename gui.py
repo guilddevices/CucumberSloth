@@ -19,14 +19,14 @@ def initialize():
     root.after(500,devkey)
     root.mainloop()
 
-def devkey():
+"""def devkey():
     key = input("What is the key? ")
     if key != "~":
         return
     else:
         for x in resourcedictionary:
             changeamount(x,10000)
-        update()
+        update()"""
 
 def disable(press_button):
     press_button.config(state="disabled")
