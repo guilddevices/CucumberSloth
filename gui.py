@@ -49,7 +49,7 @@ def initialize():
     science_counter.place(x=100,y=100)
 
     #dialogbox
-    dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="black", fg="white", wraplength=400)
+    dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Black", fg="White", wraplength=400, width=50, height=10)
     dialogue_label.place(relx=.8, rely=0, anchor='ne')
 
     #root.after(500,devkey)
