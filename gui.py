@@ -21,6 +21,7 @@ def frame():
             dialogue_pop_up("You have eaten food.")
         else:
             disable(brainstorm_button)
+            food = False
             update()
             return
         if st.ranout == "berries":
@@ -29,6 +30,12 @@ def frame():
             st.eatclock = 2400
         elif st.ranout == "fruits":
             st.eatclock = 4800
+
+    if food = False and (getamount("berries") > 0 or getamount("fruits") > 0 or getamount("vegetables") > 0):
+        eat()
+        brainstorm_button.config(state="normal")
+        food = True
+
     update()
 
 def game():
