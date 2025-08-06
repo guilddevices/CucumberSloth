@@ -4,6 +4,7 @@ import tkinter as tk
 from user import *
 from dialogue import *
 import random
+import time
 #Dialogue
 dialoguelist = []
 global berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label
@@ -24,7 +25,7 @@ def frame():
     time.sleep(1/60)
     #dialogue_pop_up("test")
 def game():
-    dialogue_pop_up("You are in Middle of Nowhere.\n Right now, you can only get berries for food, and you need to eat to survive.\n")
+    dialogue_pop_up("You are in Middle of Nowhere.\nRight now, you can get berries for food, and you need to eat to survive.\nEvery 20 seconds, you will lose one berry.")
     while True:
         frame()
 def berry_gather():
@@ -36,6 +37,8 @@ def berry_gather():
     berries_button.after(number*1000+1, lambda: berries_button.config(state="normal"))
 
 def brainstorm():
+    brainstorm_number = random.randint(1,3)
+    dialogue_pop_up(dialogue["brainstorm"][str(brainstorm_number)])
     disable(brainstorm_button)
     brainstorm_button.after(29999, lambda: changeamount("science", 1))
     science_counter.after(30000, lambda: update())
@@ -46,7 +49,7 @@ berries_counter = tk.Label(root, text = "Berries: 0")
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 science_counter = tk.Label(root, text = "Science: 0")
-dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Black", fg="White", wraplength=400, width=50, height=10)
+dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Black", fg="White", wraplength=400, width=50, height=100)
 
 def forage():
     changeamount("berries",1)
@@ -99,8 +102,8 @@ def update():
 
     
 def dialogue_pop_up(new_dialogue):
-    dialoguelist.insert(0,(new_dialogue.replace("{","")).replace("}", ""))
+    dialoguelist.insert(0,(f"{new_dialogue}\r\r"))
     #if len(dialoguelist) >= 10:
      #   dialoguelist.pop()
-    dialogue_label.config(text=dialoguelist)
+    dialogue_label.config(text="".join(dialoguelist))
     

@@ -1,7 +1,6 @@
 from gui import *
 from tech import *
 from user import *
-import time
 #variable setting
 initialize()
 

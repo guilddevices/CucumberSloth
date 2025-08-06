@@ -1,4 +1,5 @@
 from ourgameresources import *
+global eatclock
 eatclock = 1200
 def eat():
     if getamount("berries") > 0:

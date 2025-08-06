@@ -5,9 +5,9 @@ dialogue = {
 "5": "You gather berries after finding a berry bush behind a tree."
 },
 "brainstorm": {
-"1": "You ponder existential questions about life and the universe, and gain Science points from that.",
-"2": "You imagine a place with more resources, and a big city full of people, and realize that you don't want that, and get Science points from that.",
-"3": "You solve an unsolved math eqution using the experiences that you have had in your new Middle of Nowhere experiences, and gain Science points."
+"1": "You start to ponder existential questions about life and the universe, and once you finish, you gain Science points.",
+"2": "You start to imagine a place with more resources, and a big city full of people, and eventually realize that you don't want that, and earn Science points from that.",
+"3": "You work on solving an unsolved math eqution using the experiences that you have had in your new Middle of Nowhere experiences, and when you solve it you gain Science points."
 },
 "forage": {
     "vegetable": "You find some fresh vegetables on the ground but be careful a rabbit is nearby.",
