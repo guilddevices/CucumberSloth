@@ -19,4 +19,10 @@ def eat():
         return True
     else:
         return False
+    
+def havefood():
+    if getamount("berries") > 0 or getamount("vegetables") > 0 or getamount("fruits") > 0:
+        return True
+    else:
+        return False
         

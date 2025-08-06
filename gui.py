@@ -16,12 +16,13 @@ root.title("Name of our Game")
 def frame():
     st.eatclock -= 1
     if st.eatclock == 0:
-        if eat:
+        if havefood():
             eat()
             dialogue_pop_up("You have eaten food.")
         else:
             disable(brainstorm_button)
-            food = False
+            dialogue_pop_up("You are starving! You can only gather food.")
+            st.food = False
             update()
             return
         if st.ranout == "berries":
@@ -31,10 +32,11 @@ def frame():
         elif st.ranout == "fruits":
             st.eatclock = 4800
 
-    if food = False and (getamount("berries") > 0 or getamount("fruits") > 0 or getamount("vegetables") > 0):
+    if st.food == False and havefood() == True:
         eat()
+        dialogue_pop_up("You have eaten food.")
         brainstorm_button.config(state="normal")
-        food = True
+        st.food = True
 
     update()
 
