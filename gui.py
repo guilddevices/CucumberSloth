@@ -1,3 +1,4 @@
+global eatclcock, berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label, root
 from ourgameresources import *
 from variables import *
 import tkinter as tk
@@ -5,31 +6,38 @@ from user import *
 from dialogue import *
 import random
 import time
+import state as st
 #Dialogue
 dialoguelist = []
-global berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label
-
-global root
 root = tk.Tk() 
 root.title("Name of our Game")
-
-
 #define helper functions
 
 def frame():
-    eatclock -= 1
-    if eatclock == 0:
-        if eat():
+    st.eatclock -= 1
+    if st.eatclock == 0:
+        if eat:
+            eat()
             dialogue_pop_up("You have eaten food.")
         else:
-            brainstorm_button.config(state="disabled")
+            disable(brainstorm_button)
+            update()
+            return
+        if st.ranout == "berries":
+            st.eatclock = 1200
+        elif st.ranout == "vegetables":
+            st.eatclock = 2400
+        elif st.ranout == "fruits":
+            st.eatclock = 4800
     update()
-    time.sleep(1/60)
 
 def game():
     dialogue_pop_up("You are in Middle of Nowhere.\nRight now, you can get berries for food, and you need to eat to survive.\nEvery 20 seconds, you will lose one berry.")
-    while True:
-        frame()
+    run_frame()
+
+def run_frame():
+    frame()
+    root.after(17, run_frame)  # roughly 60 frames per second
 
 def berry_gather():
     number = random.randint(4,6)
