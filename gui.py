@@ -1,6 +1,7 @@
 from ourgameresources import *
 from variables import *
 import tkinter as tk
+from user import *
 from dialogue import *
 import random
 #Dialogue
@@ -14,7 +15,18 @@ root.title("Name of our Game")
 
 #define helper functions
 
-
+def frame():
+    update()
+    eatclock -= 1
+    if eatclock == 0:
+        eat()
+        dialogue_pop_up("You have eaten food.")
+    time.sleep(1/60)
+    #dialogue_pop_up("test")
+def game():
+    dialogue_pop_up("You are in Middle of Nowhere.\n Right now, you can only get berries for food, and you need to eat to survive.\n")
+    while True:
+        frame()
 def berry_gather():
     number = random.randint(4,6)
     dialogue_pop_up(dialogue["berries"][str(number)])
@@ -66,7 +78,7 @@ def initialize():
     
     dialogue_label.place(relx=.8, rely=0, anchor='ne')
 
-    #root.after(500,devkey)
+    root.after(10,game)
     root.mainloop()
 
 """def devkey():
