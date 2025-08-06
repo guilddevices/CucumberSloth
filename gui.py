@@ -41,12 +41,12 @@ def dialogue_pop_up(new_dialogue):
     dialoguelist.insert(0,new_dialogue)
     if len(dialoguelist) >= 10:
         dialoguelist.pop()
-    new_dialogue = tk.Label(root, text = "hello")
+    new_dialogue = tk.Label(root, text = new_dialogue)
     dialogue_label.config(text="\n".join(dialoguelist))
     
 
 def berry_gather():
-    number = random.randint(3,5)
+    number = random.randint(4,6)
     disable(berries_button)
     berries_button.after(number*1000-1, lambda: changeamount("berries", 1))
     berries_counter.after(number*1000, lambda: update())
