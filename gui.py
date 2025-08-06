@@ -5,20 +5,15 @@ from dialogue import *
 import random
 #Dialogue
 dialoguelist = []
-global berries_button, berries_counter, brainstorm_button, science_counter
+global berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label
 
-global root, dialogue_label
+global root
 root = tk.Tk() 
 root.title("Name of our Game")
 
 
 #define helper functions
-def dialogue_pop_up(new_dialogue):
-    dialoguelist.insert(0,new_dialogue)
-    #if len(dialoguelist) >= 10:
-     #   dialoguelist.pop()
-    dialogue_label.config(text="\n".join(dialoguelist))
-    
+
 
 def berry_gather():
     number = random.randint(4,6)
@@ -38,6 +33,8 @@ berries_counter = tk.Label(root, text = "Berries: 0")
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 science_counter = tk.Label(root, text = "Science: 0")
+dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Green", fg="White", wraplength=400, width=50, height=10)
+
 def forage():
     changeamount("berries",1)
     if random.random() < 0.1:
@@ -65,7 +62,7 @@ def initialize():
     science_counter.place(x=100,y=100)
 
     #dialogbox
-    dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Black", fg="White", wraplength=400, width=50, height=10)
+    
     dialogue_label.place(relx=.8, rely=0, anchor='ne')
 
     #root.after(500,devkey)
@@ -86,5 +83,12 @@ def disable(press_button):
 def update():
     berries_counter.config(text=f"Berries: {getamount("berries")}")
     science_counter.config(text=f"Science: {getamount("science")}")
+    dialogue_pop_up(f"SUP you now have {getamount("berries")} berries \n")
 
+    
+def dialogue_pop_up(new_dialogue):
+    dialoguelist.insert(0,new_dialogue)
+    #if len(dialoguelist) >= 10:
+     #   dialoguelist.pop()
+    dialogue_label.config(text=dialoguelist)
     
