@@ -17,23 +17,25 @@ root.title("Name of our Game")
 #define helper functions
 
 def frame():
-    update()
     eatclock -= 1
     if eatclock == 0:
-        eat()
-        dialogue_pop_up("You have eaten food.")
+        if eat():
+            dialogue_pop_up("You have eaten food.")
+        else:
+            brainstorm_button.config(state="disabled")
+    update()
     time.sleep(1/60)
-    #dialogue_pop_up("test")
+
 def game():
     dialogue_pop_up("You are in Middle of Nowhere.\nRight now, you can get berries for food, and you need to eat to survive.\nEvery 20 seconds, you will lose one berry.")
     while True:
         frame()
+
 def berry_gather():
     number = random.randint(4,6)
     dialogue_pop_up(dialogue["berries"][str(number)])
     disable(berries_button)
     berries_button.after(number*1000-1, lambda: changeamount("berries", 1))
-    berries_counter.after(number*1000, lambda: update())
     berries_button.after(number*1000+1, lambda: berries_button.config(state="normal"))
 
 def brainstorm():
@@ -41,7 +43,6 @@ def brainstorm():
     dialogue_pop_up(dialogue["brainstorm"][str(brainstorm_number)])
     disable(brainstorm_button)
     brainstorm_button.after(29999, lambda: changeamount("science", 1))
-    science_counter.after(30000, lambda: update())
     brainstorm_button.after(30001, lambda: brainstorm_button.config(state="normal"))
 
 #Initialize Widgets
