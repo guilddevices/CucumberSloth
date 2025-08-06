@@ -16,6 +16,9 @@ def initialize():
     brainstorm_button.place(x=0,y=500)
     science_counter.place(x=100,y=100)
 
+    dialogue_label = tk.Label(root, text="", justify="left", anchor="ne")
+    dialogue_label.place(relx=1, rely=0, anchor='ne')
+
     root.after(500,devkey)
     root.mainloop()
 
@@ -36,8 +39,6 @@ def update():
     science_counter.config(text=f"Science: {getamount("science")}")
 
 def dialogue_pop_up(new_dialogue):
-    dialogue_label = tk.Label(root, text="", justify="left", anchor="ne")
-    dialogue_label.place(relx=1, rely=0, anchor='ne')
     dialoguelist.insert(0,new_dialogue)
     if len(dialoguelist) >= 10:
         dialoguelist.pop()
