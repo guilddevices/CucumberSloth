@@ -6,7 +6,7 @@ import random
 dialoguelist = []
 global berries_button, berries_counter, brainstorm_button, science_counter
 
-global root
+global root, dialogue_label
 root = tk.Tk() 
 root.title("Name of our Game")
 
