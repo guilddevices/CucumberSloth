@@ -33,7 +33,7 @@ berries_counter = tk.Label(root, text = "Berries: 0")
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 science_counter = tk.Label(root, text = "Science: 0")
-dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Green", fg="White", wraplength=400, width=50, height=10)
+dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Black", fg="White", wraplength=400, width=50, height=10)
 
 def forage():
     changeamount("berries",1)
@@ -83,7 +83,6 @@ def disable(press_button):
 def update():
     berries_counter.config(text=f"Berries: {getamount("berries")}")
     science_counter.config(text=f"Science: {getamount("science")}")
-    dialogue_pop_up(f"SUP you now have {getamount("berries")} berries \n")
 
     
 def dialogue_pop_up(new_dialogue):
