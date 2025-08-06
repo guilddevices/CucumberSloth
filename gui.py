@@ -1,4 +1,5 @@
 from ourgameresources import *
+from variables import *
 import tkinter as tk
 import random
 #Dialogue
