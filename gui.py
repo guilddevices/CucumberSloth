@@ -17,6 +17,7 @@ root.title("Name of our Game")
 
 def berry_gather():
     number = random.randint(4,6)
+    dialogue_pop_up(dialogue["berries"][str(number)])
     disable(berries_button)
     berries_button.after(number*1000-1, lambda: changeamount("berries", 1))
     berries_counter.after(number*1000, lambda: update())
@@ -86,7 +87,7 @@ def update():
 
     
 def dialogue_pop_up(new_dialogue):
-    dialoguelist.insert(0,new_dialogue)
+    dialoguelist.insert(0,(new_dialogue.replace("{","")).replace("}", ""))
     #if len(dialoguelist) >= 10:
      #   dialoguelist.pop()
     dialogue_label.config(text=dialoguelist)

@@ -1,8 +1,8 @@
 dialogue = {
 "berries": {
-"5": "You walk around and find some berries.",
-"3": "You pick some berries from a nearby bush.",
-"4": "You gather berries after finding a berry bush behind a tree."
+"6": "You walk around and find some berries.",
+"4": "You pick some berries from a nearby bush.",
+"5": "You gather berries after finding a berry bush behind a tree."
 },
 "brainstorm": {
 "1": "You ponder existential questions about life and the universe, and gain Science points from that.",
