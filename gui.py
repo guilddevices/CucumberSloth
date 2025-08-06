@@ -34,7 +34,7 @@ def frame():
 
     if st.food == False and havefood() == True:
         eat()
-        dialogue_pop_up("You have eaten food.")
+        dialogue_pop_up("You have eaten food. You are no longer starving.")
         brainstorm_button.config(state="normal")
         st.food = True
 
