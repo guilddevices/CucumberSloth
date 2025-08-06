@@ -4,8 +4,6 @@ from user import *
 import time
 #variable setting
 initialize()
-dialogue_pop_up("""You are in Middle of Nowhere.
-Right now, you can only get berries for food, and you need to eat to survive.""")
 def frame():
     update()
     eatclock -= 1
@@ -14,7 +12,8 @@ def frame():
     time.sleep(1/60)
 while True:
     frame()
-
+dialogue_pop_up("""You are in Middle of Nowhere.
+Right now, you can only get berries for food, and you need to eat to survive.""")
 #gameloop
 
 
