@@ -11,12 +11,20 @@ research(item)
 if it is possible to buy, it will buy it, send dialogue that it is succesfully bought and set the key on the have_science to true.
 if it isn't possible, it will send dialogue that "You don't have enough resources and exit the script. It is in tech.py
 
-update() This updates all counters on the screen to their actual resource count. It is in ourgameresources.py
+update() This updates all counters on the screen to their actual resource count. It is in gui.py
 
-dialogue_pop_up(new_dialogue) This is a function displaying the dialogue that you made. It will shift all other dialogue down accordingly and can only display three dialogue at once. 
+dialogue_pop_up(new_dialogue) This is a function displaying the dialogue that you made. It will shift all other dialogue down accordingly and can only display three dialogue at once. Is in gui.py
 
-brainstorm() When the brainstorm button is clicked, it waits 30 seconds and then adds one science.
+brainstorm() When the brainstorm button is clicked, it waits 30 seconds and then adds one science. Is in gui.py
+ 
+berry_gather() When the berry button is clicked, it waits 4,5 or 6 seconds depending on what it picks, and then adds one berry. Is in gui.py
 
-berry_gather() When the berry button is clicked, it waits 3,4 or 5 seconds depending on what it picks, and then adds one berry.
+initialize() Starts and runs the code. Is in gui.py
 
-initialize() Starts and runs the code.
+eat() eats food. Then it returns True or False depending on whether food was eaten. The code is in users.py
+
+disable(button) disables a button
+
+forage() more powerful berry_gather
+
+frame() one frame
