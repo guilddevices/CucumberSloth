@@ -71,11 +71,11 @@ def forage():
 def initialize():
     #Berries
     berries_button.place(x=0,y=100)
-    berries_counter.place(x=500,y=100)
+    berries_counter.place(x=200,y=105)
         
     #Brainstorm
-    brainstorm_button.place(x=0,y=500)
-    science_counter.place(x=100,y=100)
+    brainstorm_button.place(x=0,y=130)
+    science_counter.place(x=200,y=135)
 
     #dialogbox
     
