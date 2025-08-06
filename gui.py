@@ -41,7 +41,7 @@ def dialogue_pop_up(new_dialogue):
     dialoguelist.insert(0,new_dialogue)
     if len(dialoguelist) >= 10:
         dialoguelist.pop()
-    new_dialogue = tk.Label(root, text = new_dialogue)
+    new_dialogue = tk.Label(root, text = "hello")
     dialogue_label.config(text="\n".join(dialoguelist))
     
 
