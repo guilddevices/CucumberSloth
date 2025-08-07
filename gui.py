@@ -74,11 +74,11 @@ def brainstorm():
     
 
 #Initialize Widgets
-berries_counter = tk.Label(root, text = "Berries: 0")
-berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
+berries_button = tk.Button(root, text="Gather Berries", command=berry_gather, bg="#FF6863", fg="Black")
+brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm, bg="#008080", fg="Black")
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 science_counter = tk.Label(root, text = "Science: 0")
-dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3.3), width=round(root.winfo_screenwidth()/30), height=round(root.winfo_screenheight()/9))
+dialogue_label = tk.Label(root, text="", justify="left", anchor="nw", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3), width=round(root.winfo_screenwidth()/10), height=round(root.winfo_screenheight()/18.5))
 
 def forage():
     changeamount("berries",1)
