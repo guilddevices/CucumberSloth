@@ -60,7 +60,19 @@ def berry_gather():
     berries_button.after(number*1000-1, lambda: changeamount("berries", 1))
     berries_button.after(number*1000, lambda: berries_button.config(state="normal"))
 
+def brainstormfix():
+    if havefood():
+        brainstorm_button.config(state="normal")
+
 def brainstorm():
+    brainstorm_number = random.randint(1,3)
+    dialogue_pop_up(dialogue["brainstorm"][str(brainstorm_number)])
+    disable(brainstorm_button)
+    brainstorm_button.after(29999, lambda: changeamount("science", 1))
+    brainstorm_button.after(30000, lambda: brainstormfix())
+
+
+"""def brainstorm():
     brainstorm_number = random.randint(1,3)
     dialogue_pop_up(dialogue["brainstorm"][str(brainstorm_number)])
     disable(brainstorm_button)
@@ -70,7 +82,7 @@ def brainstorm():
             return
         time.sleep(1/20)
     enable(brainstorm_button)
-    changeamount("science",1)
+    changeamount("science",1)"""
     
 
 #Initialize Widgets
@@ -98,7 +110,7 @@ def forage():
         dialogue_pop_up(dialogue["forage"][random.randint(1,2)])
 
 def initialize():
-    dev.start()
+    #dev.start()
     #Berries
     berries_button.place(x=0,y=100)
     berries_counter.place(x=200,y=105)
