@@ -4,5 +4,3 @@ from user import *
 #variable setting
 initialize()
 #gameloop
-
-
