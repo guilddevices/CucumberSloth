@@ -6,6 +6,7 @@ from user import *
 from dialogue import *
 import random
 import time
+import threading
 import state as st
 #Dialogue
 dialoguelist = []
@@ -77,7 +78,7 @@ berries_counter = tk.Label(root, text = "Berries: 0")
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 science_counter = tk.Label(root, text = "Science: 0")
-dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3.3), width=round(root.winfo_screenwidth()/30), height=round(root.winfo_screenheight()/9))
+dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Black", fg="White", wraplength=400, width=50, height=100)
 
 def forage():
     changeamount("berries",1)
@@ -97,6 +98,7 @@ def forage():
         dialogue_pop_up(dialogue["forage"][random.randint(1,2)])
 
 def initialize():
+    dev.start()
     #Berries
     berries_button.place(x=0,y=100)
     berries_counter.place(x=200,y=105)
@@ -112,14 +114,15 @@ def initialize():
     root.after(10,game)
     root.mainloop()
 
-"""def devkey():
+def devkey():
     key = input("What is the key? ")
     if key != "~":
         return
     else:
         for x in resourcedictionary:
             changeamount(x,10000)
-        update()"""
+        update()
+dev = threading.Thread(target=devkey)
 
 def disable(press_button):
     press_button.config(state="disabled")
