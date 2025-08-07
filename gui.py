@@ -23,20 +23,25 @@ def frame():
             disable(brainstorm_button)
             dialogue_pop_up("You are starving! You can only gather food.")
             st.food = False
+            st.starving = True
             update()
             return
-        if st.ranout == "berries":
+        '''if st.ranout == "berries":
             st.eatclock = 1200
         elif st.ranout == "vegetables":
             st.eatclock = 2400
         elif st.ranout == "fruits":
-            st.eatclock = 4800
+            st.eatclock = 4800'''
 
     if st.food == False and havefood() == True:
         eat()
         dialogue_pop_up("You have eaten food. You are no longer starving.")
         brainstorm_button.config(state="normal")
         st.food = True
+        st.starving = False
+
+    if st.starving == True:
+        disable(brainstorm_button)
 
     update()
 
@@ -57,14 +62,14 @@ def berry_gather():
 
 def brainstormfix():
     if havefood():
+        changeamount("science", 1)
         brainstorm_button.config(state="normal")
 
 def brainstorm():
     brainstorm_number = random.randint(1,3)
     dialogue_pop_up(dialogue["brainstorm"][str(brainstorm_number)])
     disable(brainstorm_button)
-    brainstorm_button.after(29999, lambda: changeamount("science", 1))
-    brainstorm_button.after(30000, lambda: brainstormfix())
+    brainstorm_button.after(30000, brainstormfix())
 
 #Initialize Widgets
 berries_counter = tk.Label(root, text = "Berries: 0")
