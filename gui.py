@@ -114,7 +114,7 @@ def initialize():
     root.after(10,game)
     root.mainloop()
 
-def devkey():
+"""def devkey():
     key = input("What is the key? ")
     if key != "~":
         return
@@ -122,7 +122,7 @@ def devkey():
         for x in resourcedictionary:
             changeamount(x,10000)
         update()
-dev = threading.Thread(target=devkey)
+dev = threading.Thread(target=devkey)"""
 
 def disable(press_button):
     press_button.config(state="disabled")
