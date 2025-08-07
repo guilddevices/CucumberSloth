@@ -30,12 +30,12 @@ def frame():
             st.starving = True
             update()
             return
-        '''if st.ranout == "berries":
+        if st.ranout == "berries":
             st.eatclock = 1200
         elif st.ranout == "vegetables":
             st.eatclock = 2400
         elif st.ranout == "fruits":
-            st.eatclock = 4800'''
+            st.eatclock = 4800
 
     if st.food == False and havefood() == True:
         eat()
@@ -90,7 +90,7 @@ berries_button = tk.Button(root, text="Gather Berries", command=berry_gather, bg
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm, bg="#008080", fg="Black")
 science_counter = tk.Label(root, text = "Science: 0")
 berries_counter = tk.Label(root, text = "Berries: 0")
-dialogue_label = tk.Label(root, text="", justify="left", anchor="nw", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3), width=round(root.winfo_screenwidth()/10), height=round(root.winfo_screenheight()/18.5))
+dialogue_label = tk.Label(root, text="", justify="left", anchor="nw", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3), width=round(root.winfo_screenwidth()/10), height=round(root.winfo_screenheight()/15))
 
 def forage():
     changeamount("berries",1)
@@ -121,7 +121,7 @@ def initialize():
 
     #dialogbox
     
-    dialogue_label.place(relx=.8, rely=0, anchor='nw')
+    dialogue_label.place(relx=.6, rely=0, anchor='nw')
 
     root.after(10,game)
     root.mainloop()
