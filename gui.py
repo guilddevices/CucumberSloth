@@ -12,6 +12,9 @@ dialoguelist = []
 root = tk.Tk() 
 root.title("Name of our Game")
 #define helper functions
+def enable(press_button):
+    press_button.config(state="normal")
+    
 
 def frame():
     st.eatclock -= 1
@@ -60,16 +63,17 @@ def berry_gather():
     berries_button.after(number*1000-1, lambda: changeamount("berries", 1))
     berries_button.after(number*1000, lambda: berries_button.config(state="normal"))
 
-def brainstormfix():
-    if havefood():
-        changeamount("science", 1)
-        brainstorm_button.config(state="normal")
-
 def brainstorm():
     brainstorm_number = random.randint(1,3)
     dialogue_pop_up(dialogue["brainstorm"][str(brainstorm_number)])
     disable(brainstorm_button)
-    brainstorm_button.after(30000, brainstormfix())
+    for i in range(1,600):
+        if st.starving:
+            return
+        time.sleep(1/20)
+    enable(brainstorm_button)
+    changeamount("science",1)
+    
 
 #Initialize Widgets
 berries_counter = tk.Label(root, text = "Berries: 0")
