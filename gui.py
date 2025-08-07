@@ -43,11 +43,7 @@ def frame():
         st.food = True
         st.starving = False
 
-    if st.starving == True:
-        disable(brainstorm_button)
-
     update()
-
 def game():
     dialogue_pop_up("You are in Middle of Nowhere.\nRight now, you can get berries for food, and you need to eat to survive.\nEvery 20 seconds, you will lose one berry.")
     run_frame()
@@ -69,6 +65,7 @@ def brainstorm():
     disable(brainstorm_button)
     for i in range(1,600):
         if st.starving:
+            dialogue_pop_up("You have lost progress on science!")
             return
         time.sleep(1/20)
     enable(brainstorm_button)
