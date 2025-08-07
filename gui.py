@@ -78,7 +78,7 @@ berries_counter = tk.Label(root, text = "Berries: 0")
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather)
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm)
 science_counter = tk.Label(root, text = "Science: 0")
-dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Black", fg="White", wraplength=400, width=50, height=100)
+dialogue_label = tk.Label(root, text="", justify="left", anchor="ne", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3.3), width=round(root.winfo_screenwidth()/30), height=round(root.winfo_screenheight()/9))
 
 def forage():
     changeamount("berries",1)
@@ -109,7 +109,7 @@ def initialize():
 
     #dialogbox
     
-    dialogue_label.place(relx=.8, rely=0, anchor='ne')
+    dialogue_label.place(relx=.8, rely=0, anchor='nw')
 
     root.after(10,game)
     root.mainloop()
