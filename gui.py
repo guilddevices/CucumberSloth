@@ -15,9 +15,41 @@ root.title("Name of our Game")
 #define helper functions
 def enable(press_button):
     press_button.config(state="normal")
-    
 
 def frame():
+    now=time.time()
+    if not hasattr(st, "last_eat_time"):
+        st.last_eat_time = now    
+    
+    if st.lasteaten == "berries":
+        eat_interval = 20
+    elif st.lasteaten == "vegetables":
+        eat_interval = 40
+    elif st.lasteaten == "fruits":
+        eat_interval = 80
+    if now - st.last_eat_time >= eat_interval:
+        if havefood():
+            eat()  # This should set st.ranout to "berries", "vegetables", or "fruits"
+            if st.ranout == "berries":
+                dialogue_pop_up("You have eaten berries.")
+            elif st.ranout == "vegetables":
+                dialogue_pop_up("You have eaten vegetables.")
+            elif st.ranout == "fruits":
+                dialogue_pop_up("You have eaten fruits.")
+            else:
+                dialogue_pop_up("You have eaten food.")
+        else:
+            disable(brainstorm_button)
+            dialogue_pop_up("You are starving! You can only gather food.")
+            st.food = False
+            st.starving = True
+            update()
+            return
+        st.last_eat_time = now
+
+    update()
+
+"""def frame():
     st.eatclock -= 1
     if st.eatclock == 0:
         if havefood():
@@ -44,7 +76,7 @@ def frame():
         st.food = True
         st.starving = False
 
-    update()
+    update()"""
 def game():
     dialogue_pop_up("You are in Middle of Nowhere.\nRight now, you can get berries for food, and you need to eat to survive.\nEvery 20 seconds, you will lose one berry.")
     run_frame()
