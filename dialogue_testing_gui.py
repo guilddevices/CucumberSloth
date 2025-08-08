@@ -89,7 +89,6 @@ def berry_gather():
     number = random.randint(4,6)
     dialogue_pop_up(dialogue["berries"][str(number)])
     disable(berries_button)
-    berries_button.after(number*1000-1, lambda: changeamount("berries", 1))
     berries_button.after(number*1000, lambda: berries_button.config(state="normal"))
 
 def brainstormfix():

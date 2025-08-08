@@ -66,6 +66,9 @@ def run_frame():
     frame()
     root.after(17, run_frame)  # roughly 60 frames per second
 
+def show_counter(which_counter):
+    which_counter.config(state="normal")
+
 def berry_gather():
     number = random.randint(4,6)
     dialogue_pop_up(dialogue["berries"][str(number)])
