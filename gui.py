@@ -75,7 +75,7 @@ def berry_gather():
     disable(berries_button)
     berries_button.after(number*1000-1, lambda: changeamount("berries", 1))
     berries_button.after(number*1000, lambda: berries_button.config(state="normal"))
-    berries_button.after(number*1000,show_counter(berries_counter))
+    berries_button.after(number*1000, lambda: show_counter(berries_counter))
 
 def brainstormfix():
     if havefood():
@@ -97,6 +97,7 @@ def brainstorm():
     disable(brainstorm_button)
     brainstorm_id = brainstorm_button.after(29999, lambda: brainstormchange())
     brainstorm_button.after(30000, lambda: brainstormfix())
+    brainstorm_button.after(30001, lambda: show_counter(science_counter))
     
 
 #Initialize Widgets
