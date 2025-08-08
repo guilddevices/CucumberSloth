@@ -1,6 +1,6 @@
 global eatclcock, berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label, root
 from ourgameresources import *
-from variables import *
+from ourvariables import *
 import tkinter as tk
 from user import *
 from dialogue import *

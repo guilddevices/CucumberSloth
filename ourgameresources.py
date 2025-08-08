@@ -1,4 +1,4 @@
-from variables import *
+from ourvariables import *
 
 def getamount(resource,condition=""):
     if resource in resourcedictionary:
@@ -42,9 +42,3 @@ def setamount(resource,amount,condition =""):
             fooddictionary[resource] = amount
     else:
         return "SetResourceAmountError"
-
-def know(resource):
-    if ever_got[resource]:
-        return True
-    else:
-        return False

@@ -1,6 +1,6 @@
 global eatclcock, berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label, root
 from ourgameresources import *
-from variables import *
+from ourvariables import *
 import tkinter as tk
 from user import *
 from dialogue import *
@@ -59,6 +59,7 @@ def berry_gather():
     disable(berries_button)
     berries_button.after(number*1000-1, lambda: changeamount("berries", 1))
     berries_button.after(number*1000, lambda: berries_button.config(state="normal"))
+    berries_button.after(number*1000,show_counter(berries_counter))
 
 def brainstormfix():
     if havefood():
@@ -70,20 +71,7 @@ def brainstorm():
     disable(brainstorm_button)
     brainstorm_button.after(29999, lambda: changeamount("science", 1))
     brainstorm_button.after(30000, lambda: brainstormfix())
-
-
-"""def brainstorm():
-    brainstorm_number = random.randint(1,3)
-    dialogue_pop_up(dialogue["brainstorm"][str(brainstorm_number)])
-    disable(brainstorm_button)
-    for i in range(1,600):
-        if st.starving:
-            dialogue_pop_up("You have lost progress on science!")
-            return
-        time.sleep(1/20)
-    enable(brainstorm_button)
-    changeamount("science",1)"""
-    
+    brainstorm_button.after(30000, show_counter(science_counter))
 
 #Initialize Widgets
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather, bg="#FF6863", fg="Black")
@@ -100,6 +88,7 @@ def forage():
     if random.random() < 0.02:
         fruit = True
         changeamount("fruits",1)
+
     if fruit and vegetable:
         dialogue_pop_up(dialogue["forage"]["vegetable_fruit"])
     elif vegetable:
@@ -107,7 +96,7 @@ def forage():
     elif fruit:
         dialogue_pop_up(dialogue["forage"]["fruit"])
     else:
-        dialogue_pop_up(dialogue["forage"][random.randint(1,2)])
+        dialogue_pop_up(dialogue["forage"][str(random.randint(1,2))])
 
 def initialize():
     #dev.start()
@@ -149,4 +138,3 @@ def dialogue_pop_up(new_dialogue):
     #if len(dialoguelist) >= 10:
      #   dialoguelist.pop()
     dialogue_label.config(text="".join(dialoguelist))
-    
