@@ -99,16 +99,21 @@ def brainstorm():
     brainstorm_button.after(30000, lambda: brainstormfix())
     brainstorm_button.after(30001, lambda: show_counter(science_counter))
     
+def foragebutton():
+    disable(forage_button)
+    forage_button.after(4999,lambda: enable(forage_button))
+    forage_button.after(5000,lambda: forage())
 
 #Initialize Widgets
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather, bg="#FF6863", fg="Black")
+forage_button = tk.Button(root,text="Forage",command=foragebutton)
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm, bg="#008080", fg="Black")
 science_counter = tk.Label(root, text = "Science: 0")
 berries_counter = tk.Label(root, text = "Berries: 0")
 dialogue_label = tk.Label(root, text="", justify="left", anchor="nw", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3), width=round(root.winfo_screenwidth()/10), height=round(root.winfo_screenheight()/15))
 
 def forage():
-    changeamount("berries",1)
+    changeamount("berries",2)
     if random.random() < 0.1:
         vegetable = True
         changeamount("vegetables",1)
