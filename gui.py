@@ -111,6 +111,9 @@ brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm, bg="#
 science_counter = tk.Label(root, text = "Science: 0")
 berries_counter = tk.Label(root, text = "Berries: 0")
 dialogue_label = tk.Label(root, text="", justify="left", anchor="nw", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3), width=round(root.winfo_screenwidth()/10), height=round(root.winfo_screenheight()/15))
+fruits_counter = tk.Label(root,text="Fruits: 0")
+vegetables_counter = tk.Label(root,text="Vegetables: 0")
+
 
 def forage():
     changeamount("berries",2)
@@ -165,6 +168,8 @@ def disable(press_button):
 def update():
     berries_counter.config(text=f"Berries: {getamount('berries')}")
     science_counter.config(text=f"Science: {getamount('science')}")
+    fruits_counter.config(text=f"Fruits: {getamount('fruits')}")
+    vegetables_counter.config(text=f"Vegetables: {getamount('vegetables')}")
 
     
 def dialogue_pop_up(new_dialogue):
