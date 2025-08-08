@@ -42,3 +42,9 @@ def setamount(resource,amount,condition =""):
             fooddictionary[resource] = amount
     else:
         return "SetResourceAmountError"
+
+def know(resource):
+    if ever_got[resource]:
+        return True
+    else:
+        return False

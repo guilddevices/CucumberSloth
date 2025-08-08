@@ -19,4 +19,13 @@ fooddictionary = {
     "vegetables": 0,
     "fruits": 0
 }
+ever_got = {
+    "wood": False,
+    "stone": False,
+    "money": False,
+    "science": False,
+    "berries": False,
+    "vegetables": False,
+    "fruits": False
+}
 # Nothing can be in food dictionary and resource dictionary.
