@@ -1,4 +1,5 @@
-global eatclcock, berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label, brainstorm_id, root
+global eatclcock, berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label, research_there, brainstorm_id, root
+import platform
 from ourgameresources import *
 from ourvariables import *
 import tkinter as tk
@@ -10,6 +11,7 @@ import threading
 import state as st
 brainstorm_id = None
 canceled = False
+research_there = False
 #Dialogue
 dialoguelist = []
 root = tk.Tk() 
@@ -19,6 +21,11 @@ def enable(press_button):
     press_button.config(state="normal")
 
 def frame():
+    global research_there
+    if research_there == False:
+        if getamount("science") >= 2:
+            research_button.place(x=root.winfo_screenwidth()/2-root.winfo_screenwidth()/10, y=root.winfo_screenheight()-root.winfo_screenheight()/10*9)
+            research_there = True
     global brainstorm_id
     now = time.time()
     if not hasattr(st, "last_eat_time"):
@@ -66,15 +73,16 @@ def run_frame():
     frame()
     root.after(17, run_frame)  # roughly 60 frames per second
 
-
 def show_counter(which_counter):
-    which_counter.config(state="normal")
+    which_counter.config(fg="White")
 
 def berry_gather():
     number = random.randint(4,6)
     dialogue_pop_up(dialogue["berries"][str(number)])
     disable(berries_button)
+    berries_button.after(number*1000-1, lambda: changeamount("berries", 1))
     berries_button.after(number*1000, lambda: berries_button.config(state="normal"))
+    berries_button.after(number*1000, lambda: show_counter(berries_counter))
 
 def brainstormfix():
     if havefood():
@@ -96,12 +104,17 @@ def brainstorm():
     disable(brainstorm_button)
     brainstorm_id = brainstorm_button.after(29999, lambda: brainstormchange())
     brainstorm_button.after(30000, lambda: brainstormfix())
-    if st.starving:
-        return
+    brainstorm_button.after(30001, lambda: show_counter(science_counter))
 
+def research_forage():
+    transform(berries_button, forage_button, 0, 100)
 #Initialize Widgets
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather, bg="#FF6863", fg="Black")
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm, bg="#008080", fg="Black")
+if platform.system() != "Darwin":
+    research_button = tk.Button(root, text="Research: \r Forage: 2 Science", command=research_forage, bg="#0022FF", fg="White")
+else:
+    research_button = tk.Button(root, text="Research: \r Forage: 2 Science", command=research_forage)
 science_counter = tk.Label(root, text = "Science: 0")
 berries_counter = tk.Label(root, text = "Berries: 0")
 dialogue_label = tk.Label(root, text="", justify="left", anchor="nw", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3), width=round(root.winfo_screenwidth()/10), height=round(root.winfo_screenheight()/15))
@@ -114,6 +127,7 @@ def forage():
     if random.random() < 0.02:
         fruit = True
         changeamount("fruits",1)
+
     if fruit and vegetable:
         dialogue_pop_up(dialogue["forage"]["vegetable_fruit"])
     elif vegetable:
@@ -121,22 +135,25 @@ def forage():
     elif fruit:
         dialogue_pop_up(dialogue["forage"]["fruit"])
     else:
-        dialogue_pop_up(dialogue["forage"][random.randint(1,2)])
+        dialogue_pop_up(dialogue["forage"][str(random.randint(1,2))])
 
 def initialize():
     #dev.start()
     #Berries
     berries_button.place(x=0,y=100)
     berries_counter.place(x=200,y=105)
+    berries_counter.config(bg="Black", fg="Black")
         
     #Brainstorm
     brainstorm_button.place(x=0,y=130)
     science_counter.place(x=200,y=135)
+    science_counter.config(bg="Black", fg="Black")
 
     #dialogbox
     
     dialogue_label.place(relx=.6, rely=0, anchor='nw')
-
+    
+    root.config(bg="Black")
     root.after(10,game)
     root.mainloop()
 
@@ -163,4 +180,3 @@ def dialogue_pop_up(new_dialogue):
     #if len(dialoguelist) >= 10:
      #   dialoguelist.pop()
     dialogue_label.config(text="".join(dialoguelist))
-    

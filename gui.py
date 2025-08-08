@@ -136,13 +136,13 @@ def forage():
 def initialize():
     #dev.start()
     #Berries
-    berries_button.place(x=0,y=100)
-    berries_counter.place(x=200,y=105)
+    berries_button.place(x=0,y=root.winfo_screenheight()/9)
+    berries_counter.place(x=root.winfo_screenwidth()/7.2,y=root.winfo_screenheight()/(60/7))
     berries_counter.config(bg="Black", fg="Black")
         
     #Brainstorm
-    brainstorm_button.place(x=0,y=130)
-    science_counter.place(x=200,y=135)
+    brainstorm_button.place(x=0,y=root.winfo_screenheight()/(90/13))
+    science_counter.place(x=root.winfo_screenwidth()/7.2,y=root.winfo_screenheight()/(20/3))
     science_counter.config(bg="Black", fg="Black")
 
     #dialogbox
