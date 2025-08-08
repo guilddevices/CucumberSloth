@@ -168,3 +168,6 @@ def dialogue_pop_up(new_dialogue):
     #if len(dialoguelist) >= 10:
      #   dialoguelist.pop()
     dialogue_label.config(text="".join(dialoguelist))
+
+def hide(press_button):
+    press_button.place_forget()
