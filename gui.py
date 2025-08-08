@@ -176,5 +176,12 @@ def dialogue_pop_up(new_dialogue):
 def hide(press_button):
     press_button.place_forget()
 
-def show(press_button,relative_x,relative_y):
-    press_button.place(x=relative_x,y=relative_y)
+def showrel(press_button,relative_x,relative_y):
+    press_button.place(relx=relative_x,rely=relative_y)
+
+def showdef(press_button,x,y):
+    press_button.place(x=x,y=y)
+
+def transform(button1,button2,x,y):
+    hide(button1)
+    showdef(button2,x,y)
