@@ -4,4 +4,5 @@ ranout = ""
 food = True
 starving = False
 last_eat_time = time.time()
-lasteaten = "berries"
+eat_interval = "20"
+printedmessage = False

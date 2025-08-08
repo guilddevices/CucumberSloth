@@ -15,5 +15,10 @@ dialogue = {
     "vegetable_fruit": "You stumbly upon a lucky situation. To you right are ripe fruits, sweet and delicous. To your left you see a vegetable patch, delicacies never to be forgotten. You hastily pick up what you can and come back to camp.",
     "1": "You slip off of a short branch and fall into a large berry bush. To your suprise it has two unpicked berries.",
     "2": "You are paying close attention for beasts when you find a berry bush with some berries on it."
+},
+"wood": {
+    "120": "You chop down a tree and chop it into smaller pieces, and gain wood.",
+    "60": "You find a fallen tree and chop it up, and gain wood.",
+    "90": "You find a tree after some searching that has fallen down, and chop it up and get wood."
 }
 }
