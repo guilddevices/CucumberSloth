@@ -109,6 +109,7 @@ def brainstorm():
 def research_forage():
     transform(berries_button, forage_button, 0, 100)
 #Initialize Widgets
+
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather, bg="#FF6863", fg="Black")
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm, bg="#008080", fg="Black")
 if platform.system() != "Darwin":

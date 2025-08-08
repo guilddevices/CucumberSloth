@@ -1,4 +1,5 @@
-global eatclcock, berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label, brainstorm_id, root
+global eatclock, berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label, brainstorm_id, research_there, root, fruit, vegetable
+import platform
 from ourgameresources import *
 from ourvariables import *
 import tkinter as tk
@@ -10,6 +11,7 @@ import threading
 import state as st
 brainstorm_id = None
 canceled = False
+research_there = False
 #Dialogue
 dialoguelist = []
 root = tk.Tk() 
@@ -19,7 +21,12 @@ def enable(press_button):
     press_button.config(state="normal")
 
 def frame():
+    global research_there
     global brainstorm_id
+    if research_there == False:
+        if getamount("science") >= 2:
+            research_button.place(x=root.winfo_screenwidth()/2-root.winfo_screenwidth()/10, y=root.winfo_screenheight()-root.winfo_screenheight()/10*9)
+            research_there = True
     now = time.time()
     if not hasattr(st, "last_eat_time"):
         st.last_eat_time = now    
@@ -98,7 +105,15 @@ def brainstorm():
     brainstorm_id = brainstorm_button.after(29999, lambda: brainstormchange())
     brainstorm_button.after(30000, lambda: brainstormfix())
     brainstorm_button.after(30001, lambda: show_counter(science_counter))
+
+def research_forage():
+    transform(berries_button, forage_button, 0, 100)
+    disable(research_button)
+    vegetables_counter.place(x=root.winfo_screenwidth()/7.2,y=root.winfo_screenheight()/(60/7)+root.winfo_screenheight()/15)
+    fruits_counter.place(x=root.winfo_screenwidth()/7.2,y=root.winfo_screenheight()/(60/7)+root.winfo_screenheight()/7.5)
+
     
+
 def foragebutton():
     disable(forage_button)
     forage_button.after(4999,lambda: enable(forage_button))
@@ -107,12 +122,16 @@ def foragebutton():
 #Initialize Widgets
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather, bg="#FF6863", fg="Black")
 forage_button = tk.Button(root,text="Forage",command=foragebutton)
+if platform.system() != "Darwin":
+    research_button = tk.Button(root, text="Research: \r Forage: 2 Science", command=research_forage, bg="#0022FF", fg="White")
+else:
+    research_button = tk.Button(root, text="Research: \r Forage: 2 Science", command=research_forage)
 brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm, bg="#008080", fg="Black")
 science_counter = tk.Label(root, text = "Science: 0")
 berries_counter = tk.Label(root, text = "Berries: 0")
 dialogue_label = tk.Label(root, text="", justify="left", anchor="nw", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3), width=round(root.winfo_screenwidth()/10), height=round(root.winfo_screenheight()/15))
-fruits_counter = tk.Label(root,text="Fruits: 0")
-vegetables_counter = tk.Label(root,text="Vegetables: 0")
+fruits_counter = tk.Label(root,text="Fruits: 0", bg="Black", fg="White")
+vegetables_counter = tk.Label(root,text="Vegetables: 0", bg="Black", fg="White")
 
 
 def forage():
@@ -144,6 +163,7 @@ def initialize():
     brainstorm_button.place(x=0,y=root.winfo_screenheight()/(90/13))
     science_counter.place(x=root.winfo_screenwidth()/7.2,y=root.winfo_screenheight()/(20/3))
     science_counter.config(bg="Black", fg="Black")
+    
 
     #dialogbox
     
