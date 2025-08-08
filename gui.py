@@ -132,9 +132,11 @@ berries_counter = tk.Label(root, text = "Berries: 0")
 dialogue_label = tk.Label(root, text="", justify="left", anchor="nw", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3), width=round(root.winfo_screenwidth()/10), height=round(root.winfo_screenheight()/15))
 fruits_counter = tk.Label(root,text="Fruits: 0", bg="Black", fg="White")
 vegetables_counter = tk.Label(root,text="Vegetables: 0", bg="Black", fg="White")
-
+fruit = False
+vegetable = False
 
 def forage():
+    global fruit, vegetable
     changeamount("berries",2)
     if random.random() < 0.1:
         vegetable = True
@@ -143,7 +145,7 @@ def forage():
         fruit = True
         changeamount("fruits",1)
 
-    if fruit and vegetable:
+    if fruit == True and vegetable == True:
         dialogue_pop_up(dialogue["forage"]["vegetable_fruit"])
     elif vegetable:
         dialogue_pop_up(dialogue["forage"]["vegetable"])
