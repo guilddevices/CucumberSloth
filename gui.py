@@ -67,7 +67,7 @@ def run_frame():
     root.after(17, run_frame)  # roughly 60 frames per second
 
 def show_counter(which_counter):
-    which_counter.config(state="normal")
+    which_counter.config(fg="White")
 
 def berry_gather():
     number = random.randint(4,6)
@@ -97,19 +97,6 @@ def brainstorm():
     disable(brainstorm_button)
     brainstorm_id = brainstorm_button.after(29999, lambda: brainstormchange())
     brainstorm_button.after(30000, lambda: brainstormfix())
-
-
-"""def brainstorm():
-    brainstorm_number = random.randint(1,3)
-    dialogue_pop_up(dialogue["brainstorm"][str(brainstorm_number)])
-    disable(brainstorm_button)
-    for i in range(1,600):
-        if st.starving:
-            dialogue_pop_up("You have lost progress on science!")
-            return
-        time.sleep(1/20)
-    enable(brainstorm_button)
-    changeamount("science",1)"""
     
 
 #Initialize Widgets
@@ -142,15 +129,18 @@ def initialize():
     #Berries
     berries_button.place(x=0,y=100)
     berries_counter.place(x=200,y=105)
+    berries_counter.config(bg="Black", fg="Black")
         
     #Brainstorm
     brainstorm_button.place(x=0,y=130)
     science_counter.place(x=200,y=135)
+    science_counter.config(bg="Black", fg="Black")
 
     #dialogbox
     
     dialogue_label.place(relx=.6, rely=0, anchor='nw')
-
+    
+    root.config(bg="Black")
     root.after(10,game)
     root.mainloop()
 
