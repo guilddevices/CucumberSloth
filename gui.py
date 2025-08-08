@@ -145,7 +145,6 @@ def initialize():
     #dialogbox
     
     dialogue_label.place(relx=.6, rely=0, anchor='nw')
-    
     root.config(bg="Black")
     root.after(10,game)
     root.mainloop()
@@ -176,3 +175,6 @@ def dialogue_pop_up(new_dialogue):
 
 def hide(press_button):
     press_button.place_forget()
+
+def show(press_button,relative_x,relative_y):
+    press_button.place(x=relative_x,y=relative_y)
