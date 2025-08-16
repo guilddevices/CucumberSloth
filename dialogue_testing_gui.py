@@ -1,4 +1,4 @@
-global eatclcock, berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label, research_there, brainstorm_id, root
+global eatclock, berries_button, berries_counter, brainstorm_button, science_counter, dialogue_label, brainstorm_id, research_there, root, fruit, vegetable
 import platform
 from ourgameresources import *
 from ourvariables import *
@@ -22,11 +22,11 @@ def enable(press_button):
 
 def frame():
     global research_there
+    global brainstorm_id
     if research_there == False:
         if getamount("science") >= 2:
             research_button.place(x=root.winfo_screenwidth()/2-root.winfo_screenwidth()/10, y=root.winfo_screenheight()-root.winfo_screenheight()/10*9)
             research_there = True
-    global brainstorm_id
     now = time.time()
     if not hasattr(st, "last_eat_time"):
         st.last_eat_time = now    
@@ -108,20 +108,36 @@ def brainstorm():
 
 def research_forage():
     transform(berries_button, forage_button, 0, 100)
-#Initialize Widgets
+    disable(research_button)
+    vegetables_counter.place(x=root.winfo_screenwidth()/7.2,y=root.winfo_screenheight()/(60/7)+root.winfo_screenheight()/15)
+    fruits_counter.place(x=root.winfo_screenwidth()/7.2,y=root.winfo_screenheight()/(60/7)+root.winfo_screenheight()/7.5)
 
+    
+
+def foragebutton():
+    disable(forage_button)
+    forage_button.after(4999,lambda: enable(forage_button))
+    forage_button.after(5000,lambda: forage())
+
+#Initialize Widgets
 berries_button = tk.Button(root, text="Gather Berries", command=berry_gather, bg="#FF6863", fg="Black")
-brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm, bg="#008080", fg="Black")
+forage_button = tk.Button(root,text="Forage",command=foragebutton)
 if platform.system() != "Darwin":
     research_button = tk.Button(root, text="Research: \r Forage: 2 Science", command=research_forage, bg="#0022FF", fg="White")
 else:
     research_button = tk.Button(root, text="Research: \r Forage: 2 Science", command=research_forage)
+brainstorm_button = tk.Button(root, text="Brainstorm", command=brainstorm, bg="#008080", fg="Black")
 science_counter = tk.Label(root, text = "Science: 0")
 berries_counter = tk.Label(root, text = "Berries: 0")
 dialogue_label = tk.Label(root, text="", justify="left", anchor="nw", bg="Black", fg="White", wraplength=round(root.winfo_screenwidth()/3), width=round(root.winfo_screenwidth()/10), height=round(root.winfo_screenheight()/15))
+fruits_counter = tk.Label(root,text="Fruits: 0", bg="Black", fg="White")
+vegetables_counter = tk.Label(root,text="Vegetables: 0", bg="Black", fg="White")
+fruit = False
+vegetable = False
 
 def forage():
-    changeamount("berries",1)
+    global fruit, vegetable
+    changeamount("berries",2)
     if random.random() < 0.1:
         vegetable = True
         changeamount("vegetables",1)
@@ -129,7 +145,7 @@ def forage():
         fruit = True
         changeamount("fruits",1)
 
-    if fruit and vegetable:
+    if fruit == True and vegetable == True:
         dialogue_pop_up(dialogue["forage"]["vegetable_fruit"])
     elif vegetable:
         dialogue_pop_up(dialogue["forage"]["vegetable"])
@@ -141,19 +157,19 @@ def forage():
 def initialize():
     #dev.start()
     #Berries
-    berries_button.place(x=0,y=100)
-    berries_counter.place(x=200,y=105)
+    berries_button.place(x=0,y=root.winfo_screenheight()/9)
+    berries_counter.place(x=root.winfo_screenwidth()/7.2,y=root.winfo_screenheight()/(60/7))
     berries_counter.config(bg="Black", fg="Black")
         
     #Brainstorm
-    brainstorm_button.place(x=0,y=130)
-    science_counter.place(x=200,y=135)
+    brainstorm_button.place(x=0,y=root.winfo_screenheight()/(90/13))
+    science_counter.place(x=root.winfo_screenwidth()/7.2,y=root.winfo_screenheight()/(20/3))
     science_counter.config(bg="Black", fg="Black")
+    
 
     #dialogbox
     
     dialogue_label.place(relx=.6, rely=0, anchor='nw')
-    
     root.config(bg="Black")
     root.after(10,game)
     root.mainloop()
@@ -174,6 +190,8 @@ def disable(press_button):
 def update():
     berries_counter.config(text=f"Berries: {getamount('berries')}")
     science_counter.config(text=f"Science: {getamount('science')}")
+    fruits_counter.config(text=f"Fruits: {getamount('fruits')}")
+    vegetables_counter.config(text=f"Vegetables: {getamount('vegetables')}")
 
     
 def dialogue_pop_up(new_dialogue):
@@ -181,3 +199,16 @@ def dialogue_pop_up(new_dialogue):
     #if len(dialoguelist) >= 10:
      #   dialoguelist.pop()
     dialogue_label.config(text="".join(dialoguelist))
+
+def hide(press_button):
+    press_button.place_forget()
+
+def showrel(press_button,relative_x,relative_y):
+    press_button.place(relx=relative_x,rely=relative_y)
+
+def showdef(press_button,x,y):
+    press_button.place(x=x,y=y)
+
+def transform(button1,button2,x,y):
+    hide(button1)
+    showdef(button2,x,y)
